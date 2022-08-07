@@ -55,7 +55,10 @@ class Game{
     }
 
     // Did you take this from the hero shufflecards?
-    // We need to shuffle from the deck of players and then randomly disperse and unhide 8 cards 
+    // We need to shuffle from the deck of players and then randomly disperse and unhide 8 cards
+    
+    //yea, i just copied an pasted the code lol, was going to fix it later tonight.
+    // also, card limit is 7, not 8!
     shuffleCards() {
         let cCard, zRandomIndex
           for (let i=this.cards.length - 1; i>0; i--){
