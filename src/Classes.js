@@ -4,13 +4,18 @@ class Enenmy {
         this.health = 0;
         this.strength = 0;
     }
-
+    // this would be to reduce the health 
     receiveDamage = function () {
         return 
     }
+    // this would be to reduce the strength after we do certain attacks to the enemey 
+    strengthDecrease = function () {
+        return 
+    }
+    
 
 }
-
+// I told you we needed the constructor in the extended classes lol 
 class King extends Enenmy {
     constructor(type){
         super(type);
@@ -49,7 +54,8 @@ class Game{
         this.deck = []
     }
 
-
+    // Did you take this from the hero shufflecards?
+    // We need to shuffle from the deck of players and then randomly disperse and unhide 8 cards 
     shuffleCards() {
         let cCard, zRandomIndex
           for (let i=this.cards.length - 1; i>0; i--){

@@ -1,3 +1,7 @@
+
+// I think we should do an array within an array and then call it this.cards or this.players
+// look at the end. That way we can call from that array when randomly shuffling 
+
 const playerSpades = [
      {"type":`s`, "value":1, "src":`../img/cards/Spades/ready/A.png` }
     ,{"type":`s`, "value":2, "src":`../img/cards/Spades/ready/2.png` }
@@ -70,3 +74,5 @@ const enemyKings = [
    ,{"type":`h`, "health":40,"strength":20, "src":`../img/cards/Hearts/ready/K.png`}
    ,{"type":`d`, "health":40,"strength":20, "src":`../img/cards/Diamonds/ready/K.png`}
 ]
+
+const players = [playerSpades, playerClubs, playerHearts, playerDiamonds]
