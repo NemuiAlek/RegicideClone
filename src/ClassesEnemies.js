@@ -49,24 +49,3 @@ console.log(test1)
 console.log(test2)
 console.log(test3)
 
-class Game{
-    constructor(Spades, Clubs, Hearts, Diamonds, Jacks, Queens, Kings){
-        this.deck = []
-    }
-
-    // Did you take this from the hero shufflecards?
-    // We need to shuffle from the deck of players and then randomly disperse and unhide 8 cards
-    
-    //yea, i just copied an pasted the code lol, was going to fix it later tonight.
-    // also, card limit is 7, not 8!
-    shuffleCards() {
-        let cCard, zRandomIndex
-          for (let i=this.cards.length - 1; i>0; i--){
-            zRandomIndex = Math.floor(Math.random()*(i+1));
-             cCard = this.cards[i];
-             this.cards[i] = this.cards[zRandomIndex];
-             this.cards[zRandomIndex] = cCard;
-          }
-          return this.cards
-      }
-}
