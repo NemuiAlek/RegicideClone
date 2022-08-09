@@ -86,11 +86,11 @@ function getCards(playerAllCards) {
     });
     
 };
+getCards(playerSpades);
+getCards(playerClubs);
+getCards(playerHearts);
+getCards(playerDiamonds);
 
-console.log(getCards(playerSpades));
-console.log(getCards(playerClubs));
-console.log(getCards(playerHearts));
-console.log(getCards(playerDiamonds));
 
 
 

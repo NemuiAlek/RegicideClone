@@ -6,7 +6,7 @@ gameStart.shuffleCards(playerCards)
 gameStart.shuffleCards(enemyJacks)
 gameStart.shuffleCards(enemyQueens)
 gameStart.shuffleCards(enemyKings)
-gameStart.drawCards(12)
+gameStart.drawCards(8)
 
 console.log(gameStart.playerDeck)
 console.log(gameStart.enemyJacks)
