@@ -18,24 +18,25 @@ console.log(enemyClass.enemyKings)
 console.log(playerClass.playerHand)
 
 
-// window.addEventListener('load', (event) => {
-//     let html ='';
-//     let newRow;
-//     gameStart.playerHand.forEach((pic) => {
-//         html += `
-//         <div class = "cards" data-card-name=${pic.type}>
-//         <div class="front">
-//         <img src=${pic.src} alt="test">
-//         </div>
-//         </div>
-//         `;
-//         newRow = document.createElement("div");
-//         // newRow.setAttribute(`id`,`cards`)
-//         newRow.classList.add("playercards");
-//         newRow.innerHTML = html;
-//         console.log(newRow)
-//         // document.getElementById(`container`).appendChild(newRow);
-    
-//     });
-// })
+window.addEventListener('load', (event) => {
+    let html ='';
+    let newRow;
+    playerClass.playerHand.forEach((pic) => {
+        html += `
+        <div class = "cards" data-card-name=${pic.type}>
+        <div class="front">
+        <img src=${pic.src} alt="test">
+        </div>
+        </div>
+        `;
+    });
+
+    newRow = document.createElement("div");
+    // newRow.setAttribute(`id`,`cards`)
+    newRow.classList.add("playercards");
+    newRow.innerHTML = html;
+    console.log(newRow)
+    document.getElementById(`container`).appendChild(newRow);
+
+})
   
