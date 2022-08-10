@@ -20,23 +20,29 @@ console.log(playerClass.playerHand)
 
 window.addEventListener('load', (event) => {
     let html ='';
-    let newRow;
+    let i = 0;
     playerClass.playerHand.forEach((pic) => {
-        html += `
-        <div class = "cards" data-card-name=${pic.type}>
-        <div class="front">
+        html = `
+        <div data-card-type=${pic.type} data-card-value = ${pic.value}>
         <img src=${pic.src} alt="test">
         </div>
-        </div>
         `;
+        document.getElementById(`card${i}`).innerHTML = html;
+        i ++;
     });
 
-    newRow = document.createElement("div");
-    // newRow.setAttribute(`id`,`cards`)
-    newRow.classList.add("playercards");
-    newRow.innerHTML = html;
-    console.log(newRow)
-    document.getElementById(`container`).appendChild(newRow);
 
 })
   
+setTimeout(() => {
+document.querySelectorAll(`.aCard`).forEach((card) => {
+     console.log(card)
+card.addEventListener(`click`, () =>{
+    let index = parseInt(card.getAttribute(`id`).substring(4));
+    let cValue = parseInt(card.childNodes[1].getAttribute(`data-card-value`))
+    console.log(index)
+    console.log(cValue)
+    playerClass.intoPlayArea(cValue,index)
+})
+})
+}, 10);
