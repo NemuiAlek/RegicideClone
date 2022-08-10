@@ -1,13 +1,8 @@
-class Game{
-    constructor(playerCards, Jacks, Queens, Kings){
-        this.playerDeck = playerCards;
-        this.enemyJacks = Jacks;
-        this.enemyQueens = Queens;
-        this.enemyKings = Kings;
+class GameRules{
+    constructor(gameCards){
+        this.gameDeck = gameCards;
         this.discardDeck = [];
         this.deadDeck = [];
-        this.playerHand = [];
-        this.playArea = [];
     }
 
     shuffleCards(shuffleDeck) {
@@ -21,17 +16,36 @@ class Game{
           return shuffleDeck
       }
 
-    drawCards(num){
+    drawCards(num, pHand){
         num --;
         for(let i = num; i>=0; i--){
-            if(this.playerHand.length === 7){
+            if(pHand.length === 7){
                 return
             } else {
-            this.playerHand.push(this.playerDeck[i]);
-            this.playerDeck.splice(i,1)
+            pHand.push(this.gameDeck[i]);
+            this.gameDeck.splice(i,1)
             }
         }
     };
+}
+
+class EnemyRules {
+    constructor(Jacks, Queens, Kings){
+    this.enemyJacks = Jacks;
+    this.enemyQueens = Queens;
+    this.enemyKings = Kings;
+    }
+
+    Attack(enemy){
+
+    };
+}
+
+class PlayerRules{
+    constructor(){
+    this.playerHand = [];
+    this.playArea = [];
+    }
 
     intoPlayArea(card){
         this.playArea.push(card)
@@ -43,8 +57,4 @@ class Game{
         this.playerHand.push(card)
     };
 
-    Attack(enemy){
-
-    };
-    
 }

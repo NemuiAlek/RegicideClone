@@ -41,11 +41,11 @@ class Jack extends Enenmy {
 } 
 
 
-let test1 = new King("s")
-let test2 = new Jack("s")
-let test3 = new Queen("s")
+// let test1 = new King("s")
+// let test2 = new Jack("s")
+// let test3 = new Queen("s")
 
-console.log(test1)
-console.log(test2)
-console.log(test3)
+// console.log(test1)
+// console.log(test2)
+// console.log(test3)
 
