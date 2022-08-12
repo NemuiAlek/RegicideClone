@@ -11,11 +11,11 @@ gameClass.shuffleCards(enemyClass.enemyKings)
 gameClass.shuffleCards(gameClass.gameDeck)
 gameClass.drawCards(8,playerClass.playerHand)
 
-console.log(gameClass.gameDeck)
-console.log(enemyClass.enemyJacks)
-console.log(enemyClass.enemyQueens)
-console.log(enemyClass.enemyKings)
-console.log(playerClass.playerHand)
+// console.log(gameClass.gameDeck)
+// console.log(enemyClass.enemyJacks)
+// console.log(enemyClass.enemyQueens)
+// console.log(enemyClass.enemyKings)
+// console.log(playerClass.playerHand)
 
 
 window.addEventListener('load', (event) => {
@@ -40,8 +40,8 @@ document.querySelectorAll(`.aCard`).forEach((card) => {
 card.addEventListener(`click`, () =>{
     let index = parseInt(card.getAttribute(`id`).substring(4));
     let cValue = parseInt(card.childNodes[1].getAttribute(`data-card-value`))
-    console.log(index)
-    console.log(cValue)
+    // console.log(index)
+    // console.log(cValue)
     playerClass.intoPlayArea(cValue,index)
 })
 })
