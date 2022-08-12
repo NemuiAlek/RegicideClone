@@ -1,7 +1,7 @@
 //Shuffle the deck
 
-let gameClass =  new GameRules (gameCards)
-let enemyClass =  new  EnemyRules(enemyJacks,enemyQueens,enemyKings)
+let gameClass =  new GameRules (cardAsset.gameCards)
+let enemyClass =  new  EnemyRules(cardAsset.enemyJacks,cardAsset.enemyQueens,cardAsset.enemyKings)
 let playerClass =  new PlayerRules ()
 
 
@@ -9,7 +9,7 @@ gameClass.shuffleCards(enemyClass.enemyJacks)
 gameClass.shuffleCards(enemyClass.enemyQueens)
 gameClass.shuffleCards(enemyClass.enemyKings)
 gameClass.shuffleCards(gameClass.gameDeck)
-gameClass.drawCards(8,playerClass.playerHand)
+gameClass.drawCards(12,playerClass.playerHand)
 
 // console.log(gameClass.gameDeck)
 // console.log(enemyClass.enemyJacks)
@@ -30,19 +30,21 @@ window.addEventListener('load', (event) => {
         document.getElementById(`card${i}`).innerHTML = html;
         i ++;
     });
-
-
 })
   
 setTimeout(() => {
 document.querySelectorAll(`.aCard`).forEach((card) => {
-     console.log(card)
+    //  console.log(card)
 card.addEventListener(`click`, () =>{
     let index = parseInt(card.getAttribute(`id`).substring(4));
-    let cValue = parseInt(card.childNodes[1].getAttribute(`data-card-value`))
+    // let cValue = parseInt(card.childNodes[1].getAttribute(`data-card-value`))
     // console.log(index)
     // console.log(cValue)
-    playerClass.intoPlayArea(cValue,index)
+    playerClass.intoPlayArea(index)
+    console.log(playerClass.playerHand)
+    console.log(playerClass.playArea)
 })
 })
 }, 10);
+
+

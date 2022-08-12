@@ -1,6 +1,6 @@
 class GameRules{
     constructor(gameCards){
-        this.gameDeck = gameCards;
+        this.gameDeck = cardAsset.gameCards;
         this.discardDeck = [];
         this.deadDeck = [];
     }
@@ -17,6 +17,21 @@ class GameRules{
       }
 
     drawCards(num, pHand){
+        /*Replace Blank Draw Method*/
+        for(let i = num-1; i>=0; i--){
+        let index = pHand.findIndex (object => {
+            return object.blank === true;
+        });
+
+        if (index === -1){
+            return
+        } else {
+        pHand[index] = this.gameDeck[i]
+        this.gameDeck.splice(i,1)
+        }
+    }
+
+    /* Leaving because this is the push and splice method
         num --;
         for(let i = num; i>=0; i--){
             if(pHand.length === 8){
@@ -26,8 +41,10 @@ class GameRules{
             this.gameDeck.splice(i,1)
             }
         }
-    };
-}
+    };*/
+
+    }
+ }
 
 class EnemyRules {
     constructor(Jacks, Queens, Kings){
@@ -43,85 +60,48 @@ class EnemyRules {
 
 class PlayerRules{
     constructor(){
-    this.playerHand = [];
+    this.playerHand = [{blank:true},{blank:true},{blank:true},{blank:true},{blank:true},{blank:true},{blank:true},{blank:true}];
     this.playArea = [];
     }
 
     intoPlayArea(index){
     let inPlay = this.playArea.length;
-        if (inPlay >= 0) {
-            this.playArea.push(this.playerHand[index])
-            this.playerHand.splice(index,1)
-            // console.log(this.playerHand)
-            // console.log(this.playArea)
-            } else {
-                return
+    let playValue = 0
+    this.playArea.forEach((x) => {playValue += x.value});
+    console.log(playValue); 
+
+        if (this.playerHand[index].blank === true){
+            return
+        }
+            //if this is the first card selected
+        else if (inPlay === 0) {
+            this.pushPlay(index)
+            } 
+            //if this is the second card and you're choosing an Ace
+        else if (inPlay === 1 && this.playerHand[index].value === 1) {
+            this.pushPlay(index)
+            } 
+            //if this is the second card and the first card was an Ace
+         else if (inPlay === 1 && this.playArea[0].value === 1) {
+            this.pushPlay(index)
+            } 
+            
+            //If this is not the first card and you are playing a card of the same value as the first one and the total sum is less than 10 (you also cant use Aces if you Fast Play)
+        else if (this.playArea[0].value !== 1 && this.playerHand[index].value !== 1 &&
+                 this.playArea[0].value === this.playerHand[index].value && playValue + this.playerHand[index].value <= 10){
+            this.pushPlay(index)
             }
+            
     };
-3
+
+    pushPlay(index){
+        this.playArea.push(this.playerHand[index])
+        this.playerHand[index] = {blank:true}
+    }
+    
     removePlayArea(card){
         this.playArea.splice(card,1)
         this.playerHand.push(card)
     };
 
 }
-
-// class Card {
-//     constructor(suite, value) {
-//         this.suite = suite;
-//         this.value = value;
-//         this.cardImage = ""
-//     }
-
-//     setCardImage () {
-//         this.cardImage = ``
-//     }
-// }
-// let S1 = new Card("s", 1)
-// let S2 = new Card("s", 2)
-// let S3 = new Card("s", 3)
-// let S4 = new Card("s", 4)
-// let S5 = new Card("s", 5)
-// let S6 = new Card("s", 6)
-// let S7 = new Card("s", 7)
-// let S8 = new Card("s", 8)
-// let S9 = new Card("s", 9)
-// let S10 = new Card("s", 10)
-
-// let C1 = new Card("c", 1)
-// let C2 = new Card("c", 2)
-// let C3 = new Card("c", 3)
-// let C4 = new Card("c", 4)
-// let C5 = new Card("c", 5)
-// let C6 = new Card("c", 6)
-// let C7 = new Card("c", 7)
-// let C8 = new Card("c", 8)
-// let C9 = new Card("c", 9)
-// let C10 = new Card("c", 10)
-
-// let H1 = new Card("h", 1)
-// let H2 = new Card("h", 2)
-// let H3 = new Card("h", 3)
-// let H4 = new Card("h", 4)
-// let H5 = new Card("h", 5)
-// let H6 = new Card("h", 6)
-// let H7 = new Card("h", 7)
-// let H8 = new Card("h", 8)
-// let H9 = new Card("h", 9)
-// let H10 = new Card("h", 10)
-
-// let D1 = new Card("d", 1)
-// let D2 = new Card("d", 2)
-// let D3 = new Card("d", 3)
-// let D4 = new Card("d", 4)
-// let D5 = new Card("d", 5)
-// let D6 = new Card("d", 6)
-// let D7 = new Card("d", 7)
-// let D8 = new Card("d", 8)
-// let D9 = new Card("d", 9)
-// let D10 = new Card("d", 10)
-// // console.log(S1)
-
-// // console.log(S1.value)
-// // console.log(S1.suite)
-// // console.log(S10.value)
