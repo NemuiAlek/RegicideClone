@@ -61,7 +61,7 @@ class EnemyRules {
     drawEnemy(){
         let array = this.currentEnemy
 
-        console.log(`test?`)
+        // console.log(`test?`)
         if (this.enemyJacks.length !== 0){
             array.push(this.enemyJacks[0]);
             this.enemyJacks.splice(0,1);
@@ -72,7 +72,7 @@ class EnemyRules {
             array.push(this.enemyKings[0]);
             this.enemyKings.splice(0,1);
         }
-        console.log(array[0].health);
+        // console.log(array[0].health);
         document.querySelector(`#enemyHealth .statusNum`).innerHTML = array[0].health;
         document.querySelector(`#enemyStrength .statusNum`).innerHTML = array[0].strength;
         document.querySelector(`#enemyImage img`).src = array[0].src;
@@ -104,6 +104,7 @@ class PlayerRules{
             } 
             //if this is the second card and you're choosing an Ace
         else if (inPlay === 1 && this.playerHand[index].value === 1) {
+            console.log(this.playerHand[index].value)
             this.pushPlay(index)
             } 
             //if this is the second card and the first card was an Ace
@@ -116,6 +117,7 @@ class PlayerRules{
                  this.playArea[0].value === this.playerHand[index].value && playValue + this.playerHand[index].value <= 10){
             this.pushPlay(index)
             }
+        
             
     };
 
@@ -136,4 +138,7 @@ class PlayerRules{
         this.playArea.splice(card,1)
         this.playerHand.push(card)
     };
+
 }
+
+

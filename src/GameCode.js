@@ -51,7 +51,7 @@ card.addEventListener(`click`, () =>{
     // console.log(index)
     // console.log(cValue)
     playerClass.intoPlayArea(index)
-    // console.log(playerClass.playerHand)
+    console.log(playerClass.playerHand)
     console.log(playerClass.playArea)
 })
 })
