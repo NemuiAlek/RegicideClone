@@ -11,25 +11,65 @@ body {
     
 }
 
-#enemies {
+#currentEnemy {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
     align-items: center;
     margin: 0;
-
 }
 
-#playerHand img{
+/* #playerHand img{
     width: 150px;
     height: auto;
 }
+*/
+
 #playerHand{
     display: flex;
     flex-flow: row;
     justify-content: space-evenly;
     align-items: center;
-    
+} 
 
+#container{
+    display:none;
+}
 
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#enemyImage img{
+    width: 300px;
+    height: auto;
+}
+
+#enemyHealth{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#enemyStrength{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardsInPlay{
+    width: 150px;
+    height: auto;
+}
+#playArea{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
 }

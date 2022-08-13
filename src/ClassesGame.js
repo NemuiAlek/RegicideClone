@@ -28,6 +28,10 @@ class GameRules{
         } else {
         pHand[index] = this.gameDeck[i]
         this.gameDeck.splice(i,1)
+        let cardDraw = document.querySelector(`#card${index} .cardInfo`)
+        cardDraw.appendChild(document.createElement(`img`))
+        cardDraw.children[0].classList.add(`cardsInPlay`)
+        cardDraw.children[0].src = `${pHand[index].src}`
         }
     }
 
@@ -51,6 +55,27 @@ class EnemyRules {
     this.enemyJacks = Jacks;
     this.enemyQueens = Queens;
     this.enemyKings = Kings;
+    this.currentEnemy = []
+    }
+
+    drawEnemy(){
+        let array = this.currentEnemy
+
+        console.log(`test?`)
+        if (this.enemyJacks.length !== 0){
+            array.push(this.enemyJacks[0]);
+            this.enemyJacks.splice(0,1);
+        } else if (this.enemyQueens.length !== 0){
+            array.push(this.enemyQueens[0]);
+            this.enemyQueens.splice(0,1);
+        } else if (this.enemyKings.length !== 0){
+            array.push(this.enemyKings[0]);
+            this.enemyKings.splice(0,1);
+        }
+        console.log(array[0].health);
+        document.querySelector(`#enemyHealth .statusNum`).innerHTML = array[0].health;
+        document.querySelector(`#enemyStrength .statusNum`).innerHTML = array[0].strength;
+        document.querySelector(`#enemyImage img`).src = array[0].src;
     }
 
     Attack(enemy){
@@ -96,7 +121,15 @@ class PlayerRules{
 
     pushPlay(index){
         this.playArea.push(this.playerHand[index])
+
+        let cardDraw = document.querySelector(`#pCard${this.playArea.length-1}`)
+         cardDraw.appendChild(document.createElement(`img`))
+         cardDraw.children[0].classList.add(`cardsInPlay`)
+         cardDraw.children[0].src = `${this.playArea[this.playArea.length-1].src}`
+
+        document.querySelector(`#card${index} .cardInfo`).removeChild(document.querySelector(`#card${index} .cardInfo img`))
         this.playerHand[index] = {blank:true}
+        
     }
     
     removePlayArea(card){
