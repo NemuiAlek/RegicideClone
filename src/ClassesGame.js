@@ -103,5 +103,4 @@ class PlayerRules{
         this.playArea.splice(card,1)
         this.playerHand.push(card)
     };
-
 }
