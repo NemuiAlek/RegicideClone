@@ -5,14 +5,31 @@ html {
     overflow: hidden;
 }
 
-#playerHand{
-    display:flex;
-    flex-flow: row;
+body {
+    margin: 0;
+    display: inline;
+    
+}
+
+#enemies {
+    display: flex;
+    justify-content: center;
     justify-content: space-evenly;
     align-items: center;
+    margin: 0;
+
 }
 
 #playerHand img{
-    width: 200px;
+    width: 150px;
     height: auto;
+}
+#playerHand{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+
+
 }
