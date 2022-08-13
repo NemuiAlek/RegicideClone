@@ -68,7 +68,7 @@ class PlayerRules{
     let inPlay = this.playArea.length;
     let playValue = 0
     this.playArea.forEach((x) => {playValue += x.value});
-    console.log(playValue); 
+    // console.log(playValue); 
 
         if (this.playerHand[index].blank === true){
             return
