@@ -22,9 +22,14 @@ gameClass.shuffleCards(gameClass.gameDeck)
 
 // let enemy = document.getElementById('currentEnemy')
 
+
+//this needs to change with the new way we draw cards.
+//we should have the HTML info here already in the html on startup
 soloButton.addEventListener('click', () => {
     document.getElementById(`menu`).style.display = 'none'
     document.getElementById(`container`).style.display = 'block'
+    document.getElementById(`playArea`).style.display = 'flex'
+
 
     let html ='';
     let i = 0;
@@ -43,20 +48,29 @@ soloButton.addEventListener('click', () => {
 
   
 setTimeout(() => {
-document.querySelectorAll(`.aCard`).forEach((card) => {
-    //  console.log(card)
+document.querySelectorAll(`.aCard.Hand`).forEach((card) => {
 card.addEventListener(`click`, () =>{
     let index = parseInt(card.getAttribute(`id`).substring(4));
-    // let cValue = parseInt(card.childNodes[1].getAttribute(`data-card-value`))
-    // console.log(index)
-    // console.log(cValue)
     playerClass.intoPlayArea(index)
-    console.log(playerClass.playerHand)
+    // console.log(playerClass.playerHand)
     console.log(playerClass.playArea)
 })
 })
 }, 10);
     
+setTimeout(() => {
+    document.querySelectorAll(`.aCard.Area`).forEach((card) => {
+    card.addEventListener(`click`, () =>{
+        let index = parseInt(card.getAttribute(`id`).substring(5));
+        // console.log(index)
+        // console.log(playerClass.playerHand)
+        console.log(playerClass.playArea[0])
+        playerClass.removePlayArea(index)
+        // console.log(playerClass.playerHand)
+        // console.log(playerClass.playArea)
+    })
+    })
+    }, 10);
     
 
 

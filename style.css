@@ -83,10 +83,11 @@ body {
     padding-bottom: 1rem;
 }
 #playArea{
+    display: none;
+    height:250px;
     box-shadow: inset 0px 0px 20px 6px #C02200;
-    display: flex;
     flex-flow: row;
     justify-content: space-evenly;
-    margin: 10px 50em;
+    margin: 10px 30%;
     align-items: center;
 }

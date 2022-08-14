@@ -93,7 +93,8 @@ class PlayerRules{
     let inPlay = this.playArea.length;
     let playValue = 0
     this.playArea.forEach((x) => {playValue += x.value});
-    // console.log(playValue); 
+    //  console.log(index); 
+    console.log(this.playArea.length)
 
         if (this.playerHand[index].blank === true){
             return
@@ -103,12 +104,12 @@ class PlayerRules{
             this.pushPlay(index)
             } 
             //if this is the second card and you're choosing an Ace
-        else if (inPlay === 1 && this.playerHand[index].value === 1) {
+        else if (inPlay === 1 && this.playerHand[index].value === 1 && this.playArea[0].value !== 1) {
             console.log(this.playerHand[index].value)
             this.pushPlay(index)
             } 
             //if this is the second card and the first card was an Ace
-         else if (inPlay === 1 && this.playArea[0].value === 1) {
+         else if (inPlay === 1 && this.playArea[0].value === 1 && this.playerHand[index].value !== 1) {
             this.pushPlay(index)
             } 
             
@@ -134,9 +135,28 @@ class PlayerRules{
         
     }
     
-    removePlayArea(card){
-        this.playArea.splice(card,1)
-        this.playerHand.push(card)
+    removePlayArea(index){
+            let card = this.playArea[index]
+            let handIndex = this.playerHand.findIndex (object => {
+                return object.blank === true;
+            });
+    
+            if (handIndex === -1){
+                return alert(`glitch has occurred!`)
+            } else {
+                console.log(handIndex)
+                console.log(card)
+
+                this.playArea.splice(index,1)
+                let cardDraw = document.querySelector(`#card${handIndex} .cardInfo`)
+                cardDraw.appendChild(document.createElement(`img`))
+                cardDraw.children[0].classList.add(`cardsInPlay`)
+                cardDraw.children[0].src = `${card.src}`
+
+                document.querySelector(`#pCard${index}`).removeChild(document.querySelector(`#pCard${index} img`))
+                console.log(this.playArea.length)
+            }
+
     };
 
 }
