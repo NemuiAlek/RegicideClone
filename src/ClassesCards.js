@@ -15,7 +15,7 @@ class Card {
     
 
 }
-// I told you we needed the constructor in the extended classes lol 
+
 class Enemy extends Card {
     constructor(type, src, hp, str){
         super(type, src);
