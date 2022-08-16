@@ -21,14 +21,19 @@ gameClass.shuffleCards(gameClass.gameDeck)
 // console.log(playerClass.playerHand)
 
 // let enemy = document.getElementById('currentEnemy')
+let attackButton = document.getElementById(`attackButton`);
 
-
+attackButton.style.display = 'none'
 //this needs to change with the new way we draw cards.
 //we should have the HTML info here already in the html on startup
 soloButton.addEventListener('click', () => {
     document.getElementById(`menu`).style.display = 'none'
     document.getElementById(`container`).style.display = 'block'
     document.getElementById(`playArea`).style.display = 'flex'
+    attackButton.style.display = 'flex'
+    attackButton.disabled = true;
+    
+
 
 
     let html ='';

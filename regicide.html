@@ -16,9 +16,18 @@
     </div>
 
     <div id="container">
-        <div id="Header">
-            <div id="decks"></div>
-            <div id="enemies"></div>
+        <div id="header">
+            <div class="tavern">
+                <span class="deck">0</span>
+                <p>TAVERN</p>
+            </div>
+            <div class="enemies">
+                <img src="" alt="enemy-pile">
+            </div>
+            <div class="discard">
+                <span class ="discard-pile">0</span>
+                <p>DISCARD</p>
+            </div>
         </div>
             <div id="currentEnemy">
                 <div id="enemyHealth">
@@ -52,7 +61,9 @@
                     <div id="card6" class="aCard Hand"></div>
                     <div id="card7" class="aCard Hand"></div>
                 </div>
-                <div id="attackButton"></div>
+                <div id="attackButton">
+                    <button class="attack">CONFIRM ATTACK</button>
+                </div>
             </div>
     </div>
 <script src="./src/ClassesCards.js"></script>

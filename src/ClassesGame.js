@@ -119,6 +119,19 @@ class PlayerRules{
             this.pushPlay(index)
             }
         
+        // changes confirm attack button to be fully highlighted and clickable
+        // I still need to work on it a little to go back to its origin state once attack is made
+        if (inPlay > -1) {
+            document.getElementById(`attackButton`).style.pointerEvents = 'auto';
+            attackButton.style.opacity = '1';
+            attackButton.disabled = false;
+        } else if (inPlay === 0 ) {
+            attackButton.style.opacity = '0.5'
+            attackButton.disabled = true;
+        }//have to change innerHTML to  CONFIRM DISCARD once we have to discard cards
+        
+
+
             
     };
 
@@ -152,6 +165,7 @@ class PlayerRules{
                 cardDraw.appendChild(document.createElement(`img`))
                 cardDraw.children[0].classList.add(`cardsInPlay`)
                 cardDraw.children[0].src = `${card.src}`
+                // console.log(`${card.src}`);
 
                 document.querySelector(`#pCard${index}`).removeChild(document.querySelector(`#pCard${index} img`))
                 console.log(this.playArea.length)
