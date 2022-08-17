@@ -14,11 +14,6 @@ gameClass.shuffleCards(enemyClass.enemyQueens)
 gameClass.shuffleCards(enemyClass.enemyKings)
 gameClass.shuffleCards(gameClass.gameDeck)
 
-// console.log(gameClass.gameDeck)
-// console.log(enemyClass.enemyJacks)
-// console.log(enemyClass.enemyQueens)
-// console.log(enemyClass.enemyKings)
-// console.log(playerClass.playerHand)
 
 // let enemy = document.getElementById('currentEnemy')
 let attackButton = document.getElementById(`attackButton`);
@@ -41,8 +36,6 @@ document.querySelectorAll(`.aCard.Hand`).forEach((card) => {
 card.addEventListener(`click`, () =>{
     let index = parseInt(card.getAttribute(`id`).substring(4));
     playerClass.intoPlayArea(index)
-    // console.log(playerClass.playerHand)
-    // console.log(playerClass.playArea)
 })
 })
 }, 10);
@@ -51,16 +44,15 @@ setTimeout(() => {
     document.querySelectorAll(`.aCard.Area`).forEach((card) => {
     card.addEventListener(`click`, () =>{
         let index = parseInt(card.getAttribute(`id`).substring(5));
-        // console.log(index)
-        // console.log(playerClass.playerHand)
-        // console.log(playerClass.playArea[0])
         playerClass.removePlayArea(index)
-        // console.log(playerClass.playerHand)
-        // console.log(playerClass.playArea)
     })
     })
     }, 10);
-    
+
+    attackButton.addEventListener(`click`, () =>{
+        enemyClass.Attack(playerClass.playValue, playerClass.playArea, playerClass.playerHand, gameClass)
+        playerClass.playValue = 0;
+    })
 
 
 
