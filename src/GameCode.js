@@ -24,29 +24,13 @@ gameClass.shuffleCards(gameClass.gameDeck)
 let attackButton = document.getElementById(`attackButton`);
 
 attackButton.style.display = 'none'
-//this needs to change with the new way we draw cards.
-//we should have the HTML info here already in the html on startup
 soloButton.addEventListener('click', () => {
     document.getElementById(`menu`).style.display = 'none'
     document.getElementById(`container`).style.display = 'block'
     document.getElementById(`playArea`).style.display = 'flex'
     attackButton.style.display = 'flex'
     attackButton.disabled = true;
-    
 
-
-
-    let html ='';
-    let i = 0;
-    playerClass.playerHand.forEach((pic) => {
-        html = `
-        <div class="cardInfo" data-card-type=${pic.type} data-card-value = ${pic.value}>
-        </div>
-        `;
-        // <img src=${pic.src} alt="Card${pic.type,pic.value}">
-        document.getElementById(`card${i}`).innerHTML = html;
-        i ++;
-    });
     enemyClass.drawEnemy();
     gameClass.drawCards(12,playerClass.playerHand)
 })
@@ -58,7 +42,7 @@ card.addEventListener(`click`, () =>{
     let index = parseInt(card.getAttribute(`id`).substring(4));
     playerClass.intoPlayArea(index)
     // console.log(playerClass.playerHand)
-    console.log(playerClass.playArea)
+    // console.log(playerClass.playArea)
 })
 })
 }, 10);
@@ -69,7 +53,7 @@ setTimeout(() => {
         let index = parseInt(card.getAttribute(`id`).substring(5));
         // console.log(index)
         // console.log(playerClass.playerHand)
-        console.log(playerClass.playArea[0])
+        // console.log(playerClass.playArea[0])
         playerClass.removePlayArea(index)
         // console.log(playerClass.playerHand)
         // console.log(playerClass.playArea)

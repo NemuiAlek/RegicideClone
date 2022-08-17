@@ -34,19 +34,6 @@ class GameRules{
         cardDraw.children[0].src = `${pHand[index].src}`
         }
     }
-
-    /* Leaving because this is the push and splice method
-        num --;
-        for(let i = num; i>=0; i--){
-            if(pHand.length === 8){
-                return
-            } else {
-            pHand.push(this.gameDeck[i]);
-            this.gameDeck.splice(i,1)
-            }
-        }
-    };*/
-
     }
  }
 
@@ -55,7 +42,7 @@ class EnemyRules {
     this.enemyJacks = Jacks;
     this.enemyQueens = Queens;
     this.enemyKings = Kings;
-    this.currentEnemy = []
+    this.currentEnemy = [];
     }
 
     drawEnemy(){
@@ -86,65 +73,61 @@ class EnemyRules {
 class PlayerRules{
     constructor(){
     this.playerHand = [{blank:true},{blank:true},{blank:true},{blank:true},{blank:true},{blank:true},{blank:true},{blank:true}];
-    this.playArea = [];
+    this.playArea = [{blank:true},{blank:true},{blank:true},{blank:true}];
+    this.playValue = 0 ;
     }
 
     intoPlayArea(index){
-    let inPlay = this.playArea.length;
-    let playValue = 0
-    this.playArea.forEach((x) => {playValue += x.value});
-    //  console.log(index); 
-    console.log(this.playArea.length)
+    let inPlay = this.playArea.findIndex (object => {return object.blank === true;});
+    let onField = this.playArea.findIndex (object => {return object.blank !== true;});
+    // this.playArea.forEach((x) => {playValue += x.value});
+    //   console.log(inPlay); 
 
         if (this.playerHand[index].blank === true){
             return
         }
             //if this is the first card selected
-        else if (inPlay === 0) {
+        else if (inPlay === 0 && onField === -1) {
             this.pushPlay(index)
             } 
             //if this is the second card and you're choosing an Ace
-        else if (inPlay === 1 && this.playerHand[index].value === 1 && this.playArea[0].value !== 1) {
-            console.log(this.playerHand[index].value)
+        else if (this.playerHand[index].value === 1 && this.playArea[onField].value !== 1) {
+            // console.log(this.playerHand[index].value)
             this.pushPlay(index)
             } 
             //if this is the second card and the first card was an Ace
-         else if (inPlay === 1 && this.playArea[0].value === 1 && this.playerHand[index].value !== 1) {
+         else if (this.playArea[onField].value === 1 && this.playerHand[index].value !== 1) {
             this.pushPlay(index)
             } 
             
             //If this is not the first card and you are playing a card of the same value as the first one and the total sum is less than 10 (you also cant use Aces if you Fast Play)
-        else if (this.playArea[0].value !== 1 && this.playerHand[index].value !== 1 &&
-                 this.playArea[0].value === this.playerHand[index].value && playValue + this.playerHand[index].value <= 10){
+        else if (this.playArea[onField].value !== 1 && this.playerHand[index].value !== 1 &&
+                 this.playArea[onField].value === this.playerHand[index].value && this.playValue + this.playerHand[index].value <= 10){
             this.pushPlay(index)
             }
         
-        // changes confirm attack button to be fully highlighted and clickable
-        // I still need to work on it a little to go back to its origin state once attack is made
-        if (inPlay > -1) {
-            document.getElementById(`attackButton`).style.pointerEvents = 'auto';
-            attackButton.style.opacity = '1';
-            attackButton.disabled = false;
-        } else if (inPlay === 0 ) {
-            attackButton.style.opacity = '0.5'
-            attackButton.disabled = true;
-        }//have to change innerHTML to  CONFIRM DISCARD once we have to discard cards
-        
-
-
-            
     };
 
     pushPlay(index){
-        this.playArea.push(this.playerHand[index])
 
-        let cardDraw = document.querySelector(`#pCard${this.playArea.length-1}`)
+            let areaIndex = this.playArea.findIndex (object => {
+                return object.blank === true;
+            });
+
+        this.playArea[areaIndex] = this.playerHand[index]
+        this.playValue += this.playerHand[index].value
+
+        let cardDraw = document.querySelector(`#pCard${[areaIndex]}`)
          cardDraw.appendChild(document.createElement(`img`))
          cardDraw.children[0].classList.add(`cardsInPlay`)
-         cardDraw.children[0].src = `${this.playArea[this.playArea.length-1].src}`
+         cardDraw.children[0].src = `${this.playArea[areaIndex].src}`
 
         document.querySelector(`#card${index} .cardInfo`).removeChild(document.querySelector(`#card${index} .cardInfo img`))
         this.playerHand[index] = {blank:true}
+        
+        document.getElementById(`attackButton`).style.pointerEvents = 'auto';
+        attackButton.style.opacity = '1';
+        attackButton.disabled = false;
         
     }
     
@@ -157,18 +140,30 @@ class PlayerRules{
             if (handIndex === -1){
                 return alert(`glitch has occurred!`)
             } else {
-                console.log(handIndex)
-                console.log(card)
 
-                this.playArea.splice(index,1)
+
+                this.playValue -= this.playArea[index].value
+
+                this.playerHand[handIndex] = card
+                this.playArea[index] = {blank:true}
+
                 let cardDraw = document.querySelector(`#card${handIndex} .cardInfo`)
                 cardDraw.appendChild(document.createElement(`img`))
                 cardDraw.children[0].classList.add(`cardsInPlay`)
                 cardDraw.children[0].src = `${card.src}`
-                // console.log(`${card.src}`);
 
                 document.querySelector(`#pCard${index}`).removeChild(document.querySelector(`#pCard${index} img`))
-                console.log(this.playArea.length)
+
+                handIndex = this.playArea.findIndex (object => {
+                    return object.blank !== true;
+                }); 
+                console.log(handIndex)
+                if (handIndex === -1)
+                {
+                document.getElementById(`attackButton`).style.pointerEvents = 'none';
+                attackButton.style.opacity = '0.5'
+                attackButton.disabled = true
+                }
             }
 
     };
