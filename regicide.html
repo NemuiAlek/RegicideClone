@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regicide</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div id="menu">
-        <div id="Title"><img src="https://c.tenor.com/uSEMb3cPgSoAAAAd/travolta-where.gif"></div>
+        <div id="title"><img src="https://c.tenor.com/uSEMb3cPgSoAAAAd/travolta-where.gif"></div>
         <div id="soloButton"><button>the only one that actually works</button></div>
         <div id="multiButton"><button>yea right</button></div>
         <div id="turtle"><button>dont you mean tutorial?</button></div>
@@ -17,14 +17,14 @@
 
     <div id="container">
         <div id="header">
-            <div class="tavern">
+            <div class="topDeck tavern">
                 <span class="deck">0</span>
                 <p>TAVERN</p>
             </div>
             <div class="enemies">
                 <img src="" alt="enemy-pile">
             </div>
-            <div class="discard">
+            <div class="topDeck discard">
                 <span class ="discard-pile">0</span>
                 <p>DISCARD</p>
             </div>
@@ -43,14 +43,29 @@
                 </div>
             </div>
         </div>
-        <div id="playArea">
-            <div id="pCard0" class="aCard Area"></div>
-            <div id="pCard1" class="aCard Area"></div>
-            <div id="pCard2" class="aCard Area"></div>
-            <div id="pCard3" class="aCard Area"></div>
+        <div id="middle">
+            <div id="playArea">
+                <div id="pCard0" class="aCard Area"></div>
+                <div id="pCard1" class="aCard Area"></div>
+                <div id="pCard2" class="aCard Area"></div>
+                <div id="pCard3" class="aCard Area"></div>
+            </div>
+            <div id="statBox">
+                <div class="statActualBox player">
+                    <span class="statDesc"> box info will appear here</span>
+                    <span class="statNum">0</span>
+                </div>
+            </div>
         </div>
-            <div id="Footer">
-                <div id="jokers"></div>
+            <div id="footer"  >
+                <div id="jokers">
+                    <div id="joker1" class="joker free">
+                        <img src="./img/joker.jpg">
+                    </div>
+                    <div id="joker2" class="joker free">
+                        <img src="./img/joker.jpg">
+                    </div>
+                </div>
                 <div id="playerHand">
                     <div id="card0" class="aCard Hand">
                         <div class="cardInfo"></div>
@@ -77,14 +92,16 @@
                         <div class="cardInfo"></div>
                     </div>
                 </div>
-                <div id="attackButton">
-                    <button class="attack">CONFIRM ATTACK</button>
+                <div id="actionButton">
+                    <button class="action">CONFIRM ATTACK!</button>
                 </div>
             </div>
     </div>
 <script src="./src/ClassesCards.js"></script>
 <script src="./src/GameAssets.js"></script>
 <script src="./src/ClassesGame.js"></script>
+<script src="./src/ClassesEnemy.js"></script>
+<script src="./src/ClassesPlayer.js"></script>
 <script src="./src/GameCode.js"></script>
 </body>
 </html>

@@ -22,8 +22,8 @@ actionButton.style.display = 'none'
 soloButton.addEventListener('click', () => {
     document.getElementById(`menu`).style.display = 'none'
     document.getElementById(`container`).style.display = 'block'
-    document.getElementById(`playArea`).style.display = 'flex'
-    document.getElementById(`jokers`).style.display = 'flex'
+    document.getElementById(`middle`).style.display = 'flex'
+    document.getElementById(`footer`).style.display = 'flex'
     actionButton.style.display = 'flex'
     actionButton.disabled = true;
 

@@ -8,8 +8,15 @@ class PlayerRules{
     intoPlayArea(index, currentTurn){
     let inPlay = this.playArea.findIndex (object => {return object.blank === true;});
     let onField = this.playArea.findIndex (object => {return object.blank !== true;});
-    // this.playArea.forEach((x) => {playValue += x.value});
-    //   console.log(inPlay); 
+
+    /*Prevent player from playing multiple aces*/
+    let acePlayed = false
+    for (let i = 0; i < 4; i++){
+        if (`blank` in this.playArea[i]){
+        } else if (this.playArea[i].value === 1){
+            acePlayed = true
+        }
+    }
  
         if (this.playerHand[index].blank === true){
             return
@@ -22,12 +29,12 @@ class PlayerRules{
             this.pushPlay(index)
             } 
             //if this is the second card and you're choosing an Ace
-        else if (this.playerHand[index].value === 1 && this.playArea[onField].value !== 1) {
+        else if (this.playerHand[index].value === 1 && this.playArea[onField].value !== 1 && acePlayed !== true) {
             // console.log(this.playerHand[index].value)
             this.pushPlay(index)
             } 
             //if this is the second card and the first card was an Ace
-         else if (this.playArea[onField].value === 1 && this.playerHand[index].value !== 1) {
+         else if (this.playArea[onField].value === 1 && this.playerHand[index].value !== 1 && inPlay === 1) {
             this.pushPlay(index)
             } 
             
@@ -90,7 +97,7 @@ class PlayerRules{
                 handIndex = this.playArea.findIndex (object => {
                     return object.blank !== true;
                 }); 
-                // console.log(handIndex)
+                //     (handIndex)
                 if (handIndex === -1)
                 {
                 document.getElementById(`actionButton`).style.pointerEvents = 'none';
