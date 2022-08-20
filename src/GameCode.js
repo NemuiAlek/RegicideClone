@@ -13,10 +13,24 @@ let menu = document.getElementById(`menu`);
 let container = document.getElementById(`container`);
 let middle = document.getElementById(`middle`);
 let footer = document.getElementById(`footer`);
-let titleMusic = document.getElementById(`music1`)
-let jacksQueensMusic = document.getElementById(`music2`)
-let kingsMusic = document.getElementById(`music3`)
-let launchModel = document.getElementById(`modalLaunch`)
+let launchModel = document.getElementById(`modalLaunch`);
+
+let titleMusic = document.getElementById(`titleMusic`);
+let jacksQueensMusic = document.getElementById(`mainMusic`);
+let kingsMusic = document.getElementById(`bossMusic`);
+
+let critHit = document.getElementById(`critHit`);
+let midHit = document.getElementById(`midHit`);
+let regularHit = document.getElementById(`regularHit`);
+
+let critDmg = document.getElementById(`critDmg`)
+let midDmg = document.getElementById(`midDmid`)
+let regularDmg = document.getElementById(`regularDmg`)
+
+let jackDeath = document.getElementById(`JackDeath`)
+let queenDeath = document.getElementById(`QueenDeath`)
+let kingDeath = document.getElementById(`KingDeath`)
+let easterEgg1 = document.getElementById(`easterEgg1`)
 
 
 gameClass.shuffleCards(enemyClass.enemyJacks)

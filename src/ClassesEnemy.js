@@ -83,7 +83,13 @@ class EnemyRules {
             attacknum *= 2
     };
 
-
+    if(attacknum < 10){
+        styleClass.play(regularHit)
+    } else if (attacknum < 20){
+        styleClass.play(midHit)
+    } else{
+        styleClass.play(critHit)
+    }
 
     this.currentEnemy.health -= attacknum
     document.querySelector(`#enemyHealth .statusNum`).innerHTML = this.currentEnemy.health;

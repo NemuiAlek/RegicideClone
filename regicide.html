@@ -12,9 +12,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div id="muisc">
-        <audio id="music1" src="./audio/Title.wav"></audio>
-        <audio id="music2" src="./audio/Jacks-Queens.wav"></audio>
-        <audio id="music3" src="./audio/Kings.wav"></audio>
+        <audio loop id="titleMusic" src="./audio/Music/Title.wav"></audio>
+        <audio loop id="mainMusic" src="./audio/Music/Jacks-Queens.wav"></audio>
+        <audio loop id="bossMusic" src="./audio/Music/Kings.wav"></audio>
+    </div>
+
+    <div id="soundEffects">
+        <div id="hits">
+            <audio id="critHit" src="./audio/SoundEffects/Hits/critHit.mp3"></audio>
+            <audio id="midHit" src="./audio/SoundEffects/Hits/midHit.wav"></audio>
+            <audio id="regularHit" src="./audio/SoundEffects/Hits/regularHit.wav"></audio>
+        </div>
+        <div id="recieveDamage">
+            <audio id="critDmg" src="./audio/SoundEffects/Hits/critDmg.wav"></audio>
+            <audio id="midDmg" src="./audio/SoundEffects/Hits/midDmg.wav"></audio>
+            <audio id="regularDmg" src="./audio/SoundEffects/Hits/regularDmg.wav"></audio>
+        </div>
+        <div id="deaths">
+            <audio id="jackDeath" src="./audio/SoundEffects/Death/JackDeath.wav"></audio>
+            <audio id="queenDeath" src="./audio/SoundEffects/Death/QueenDeath.wav"></audio>
+            <audio id="kingDeath" src="./audio/SoundEffects/Death/KingDeath.wav"></audio>
+            <audio id="easterEgg1" src="./audio/SoundEffects/Death/DeathNoiceEaster.wav"></audio>
+        </div>
+
     </div>
 </head>
 <body>
