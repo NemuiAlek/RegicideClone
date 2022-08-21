@@ -19,12 +19,15 @@ let titleMusic = document.getElementById(`titleMusic`);
 let jacksQueensMusic = document.getElementById(`mainMusic`);
 let kingsMusic = document.getElementById(`bossMusic`);
 
+let loseMusic = document.getElementById(`loseMusic`);
+let winMusic = document.getElementById(`winMusic`);
+
 let critHit = document.getElementById(`critHit`);
 let midHit = document.getElementById(`midHit`);
 let regularHit = document.getElementById(`regularHit`);
 
 let critDmg = document.getElementById(`critDmg`)
-let midDmg = document.getElementById(`midDmid`)
+let midDmg = document.getElementById(`midDmg`)
 let regularDmg = document.getElementById(`regularDmg`)
 
 let jackDeath = document.getElementById(`JackDeath`)
@@ -81,11 +84,11 @@ card.addEventListener(`click`, () =>{
             enemyClass.Attack(playerClass.playValue, playerClass.playArea, playerClass.playerHand, gameClass, styleClass)
             playerClass.playValue = 0;
         } else if (gameClass.CurrentTurn === `Enemy`){
-            enemyClass.EnemyAttack(enemyClass.enemyAttackValue, playerClass.playValue, playerClass.playArea, gameClass)
+            enemyClass.EnemyAttack(enemyClass.enemyAttackValue, playerClass.playValue, playerClass.playArea, gameClass, styleClass)
             playerClass.playValue = 0;
         }
 
-        gameClass.checkIfLost(playerClass.playerHand)
+        gameClass.checkIfLost(playerClass.playerHand,styleClass)
         // console.log(gameClass.CurrentTurn)
     })
 

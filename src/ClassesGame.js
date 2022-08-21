@@ -81,9 +81,16 @@ class GameRules{
         // console.log(this.jokerAvailable.length)
     }
 
-    checkIfLost(pHand){
+    checkIfLost(pHand,styleClass){
         if(this.jokerAvailable.length === 0 && pHand.every(obj => obj.hasOwnProperty('blank'))){
-            return alert(`FUCKING LOSER`)
+            document.getElementById(`modalLose`).style.display = `block`;
+            styleClass.pause(jacksQueensMusic)
+            styleClass.pause(kingsMusic)
+            styleClass.play(loseMusic);
+            setTimeout(() => {
+                document.getElementById("modalLose").classList.toggle('holdLose');             
+            }, 1499);
+
         }
     }
 }

@@ -15,6 +15,8 @@
         <audio loop id="titleMusic" src="./audio/Music/Title.wav"></audio>
         <audio loop id="mainMusic" src="./audio/Music/Jacks-Queens.wav"></audio>
         <audio loop id="bossMusic" src="./audio/Music/Kings.wav"></audio>
+        <audio loop id="loseMusic" src="./audio/Music/loseMusic.wav"></audio>
+        <audio loop id="winMusic" src="./audio/Music/winMusic.wav"></audio>
     </div>
 
     <div id="soundEffects">
@@ -45,17 +47,17 @@
         </div>
     </div>
 
-    <div id="modalWin" class="modal appear">
-        <div class="modal-content winModal">
+    <div id="modalWin" class="modal">
+        <div class="modal-content hold winModal">
         <h3>YOU WON!!!</h3>
-        <span class="close">Click to view Results</span>
+        <span><img src="./img/victory.gif"></span>
         </div>
     </div>
 
-    <div id="modalLose" class="modal appear">
+    <div id="modalLose" class="modal">
         <div class="modal-content loseModal">
-        <h3>YOU WON!!!</h3>
-        <span class="close">Click to view Results</span>
+        <h3>you lost...</h3>
+        <span><img src="./img/lose.webp"></span>
         </div>
     </div>
 

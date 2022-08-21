@@ -268,6 +268,14 @@ body {
     display: block;
 }
 
+#modalWin{
+    display: none;
+}
+
+#modalLose{
+    display: none;
+}
+
 h3{
     color: white;
     font-size: 50px;
@@ -289,7 +297,17 @@ h3{
 }
 
 .modal-content.launchModel{
-    background-color: gray;
+    background-color: rgb(128, 128, 128, .95);
+    border: 2px solid black;
+}
+
+.modal-content.winModal{
+    background-color: rgb(119, 174, 119, .9);
+    border: 2px solid black;
+}
+
+.modal-content.loseModal{
+    background-color: rgb(192, 90, 90, .9);
     border: 2px solid black;
 }
 
@@ -302,7 +320,12 @@ h3{
     100%{background-position: -2122px 0;}
 }
 
-.appear .modal-content{
+
+#modalLaunch .modal-content{
+    animation-name: none;
+  }
+
+.modal .modal-content{
     animation-name: appear;
     animation-timing-function: ease;
   }
@@ -312,21 +335,31 @@ h3{
     100% { transform: scale(1,1)    translateY(0); }
   }
   
-  .appear .modal-content.hold{
-    animation-name: hold;
+  .holdLose .modal-content.loseModal{
+    animation-name: holdLose;
     animation-timing-function: ease;
   }
-  @keyframes hold{
+  @keyframes holdLose{
+    0%  { transform: scale(1,1) translateY(0); }
+    50%  { transform: scale(.98,1.02) translateY(0); }
+    100% { transform: scale(1,1)    translateY(0); }
+  }
+
+  .holdWin .modal-content.winModal{
+    animation-name: holdWin;
+    animation-timing-function: ease;
+  }
+  @keyframes holdWin{
     0%  { transform: scale(1,1) translateY(0); }
     50%  { transform: scale(.9,1.1) translateY(0); }
     100% { transform: scale(1,1)    translateY(0); }
   }
 
 
-  .apply-shake {
-    animation: shake .7s cubic-bezier(.36,.07,.19,.97) both;
+  .apply-shake-weak {
+    animation: shakeWeak .7s cubic-bezier(.36,.07,.19,.97) both;
 }
-  @keyframes shake {
+  @keyframes shakeWeak {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
     }
@@ -341,6 +374,48 @@ h3{
   
     40%, 60% {
       transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  .apply-shake-mid {
+    animation: shakeMid .9s cubic-bezier(.36,.07,.19,.97) both;
+}
+  @keyframes shakeMid {
+    10%, 90% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    20%, 80% {
+      transform: translate3d(6px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-10px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(10px, 0, 0);
+    }
+  }
+
+  .apply-shake-strong {
+    animation: shakeStrong 1.2s cubic-bezier(.36,.07,.19,.97) both;
+}
+  @keyframes shakeStrong {
+    10%, 90% {
+      transform: translate3d(-10px, 0, 0);
+    }
+  
+    20%, 80% {
+      transform: translate3d(10px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-20px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(20px, 0, 0);
     }
   }
 

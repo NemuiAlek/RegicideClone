@@ -33,7 +33,12 @@ class EnemyRules {
             this.showEnemyinQueue(this.enemyKings);
 
         } else if (this.enemyKings.length === 0){
-            return alert(`YOU WON HOLY SHIT!!!`)
+            document.getElementById(`modalWin`).style.display = `block`;
+            setTimeout(() => {
+                document.getElementById("modalWin").classList.toggle('holdWin');
+            }, 1499);
+            styleClass.pause(kingsMusic);
+            styleClass.play(winMusic);      
         }
         // console.log(array[0].health);
         document.querySelector(`#enemyHealth .statusNum`).innerHTML = this.currentEnemy.health;
@@ -50,8 +55,6 @@ class EnemyRules {
     }
 
     Attack(attacknum, playArea,pHand,gameClass,styleClass){
-
-        document.querySelector(`#container`).classList.toggle(`apply-shake`)
 
         let suitesInPlay = []
         let enemySuite = this.currentEnemy.type;
@@ -85,10 +88,22 @@ class EnemyRules {
 
     if(attacknum < 10){
         styleClass.play(regularHit)
+        document.querySelector(`#container`).classList.toggle(`apply-shake-weak`)
+        setTimeout(() => {
+        document.querySelector(`#container`).classList.toggle(`apply-shake-weak`)
+        }, 700);
     } else if (attacknum < 20){
         styleClass.play(midHit)
+        document.querySelector(`#container`).classList.toggle(`apply-shake-mid`)
+        setTimeout(() => {
+            document.querySelector(`#container`).classList.toggle(`apply-shake-mid`)
+        }, 900);
     } else{
         styleClass.play(critHit)
+        document.querySelector(`#container`).classList.toggle(`apply-shake-strong`)
+        setTimeout(() => {
+            document.querySelector(`#container`).classList.toggle(`apply-shake-strong`)
+        }, 1200);
     }
 
     this.currentEnemy.health -= attacknum
@@ -106,20 +121,18 @@ class EnemyRules {
         document.querySelector(`.statNum`).innerHTML = `(${this.enemyAttackValue})` ;
 
         document.querySelector(`.action`).innerText = `RECIEVE DAMAGE!`
+        document.getElementById(`actionButton`).style.pointerEvents = 'none';
+        document.getElementById(`actionButton`).style.opacity = 0.5;
             document.getElementById("statActualBox").classList.toggle('enemy');
             document.getElementById("playArea").classList.toggle('enemy');
 
     }
-    setTimeout(() => {
-        document.querySelector(`#container`).classList.toggle(`apply-shake`)
-    }, 700);
-
 
     this.enemyStatus(gameClass,enemySuite,enemyImage,styleClass) 
 
 }
 
-    EnemyAttack(enemyStr, areaSum, playArea, gameClass){
+    EnemyAttack(enemyStr, areaSum, playArea, gameClass, styleClass){
         
         // console.log(enemyStr)
 
@@ -127,11 +140,21 @@ class EnemyRules {
             this.enemyAttackValue -= areaSum
         } else if (enemyStr <= areaSum){
             gameClass.CurrentTurn = `Player`   
-            document.querySelector(`.action`).innerText = `CONFIRM ATTACK!`;    
+            document.querySelector(`.action`).innerText = `CONFIRM ATTACK!`;
+            document.getElementById(`actionButton`).style.pointerEvents = 'none'; 
+            document.getElementById(`actionButton`).style.opacity = 0.5; 
             document.getElementById("statActualBox").classList.toggle('enemy');
             document.getElementById("playArea").classList.toggle('enemy');
             document.querySelector(`.statNum`).innerHTML = 0; 
             }
+
+        if(areaSum <= 10){
+            styleClass.play(regularDmg)
+        } else if (areaSum <= 15){
+            styleClass.play(midDmg)
+        } else {
+            styleClass.play(critDmg)
+        }
 
     for(let i = 0; i < 4; i++){
         if(`blank` in playArea[i]){
@@ -155,7 +178,7 @@ class EnemyRules {
             document.querySelector(`.deck`).innerHTML = gameClass.gameDeck.length
             console.log(gameClass.gameDeck)
         } else if (this.currentEnemy.health < 0) {
-            this.drawEnemy()
+            this.drawEnemy(styleClass)
         }
     }
 
