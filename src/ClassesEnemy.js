@@ -88,15 +88,15 @@ class EnemyRules {
 
     if(attacknum < 10){
         styleClass.play(regularHit)
-        document.querySelector(`#container`).classList.toggle(`apply-shake-weak`)
+        document.querySelector(`#enemyImage`).classList.toggle(`apply-shake-weak`)
         setTimeout(() => {
-        document.querySelector(`#container`).classList.toggle(`apply-shake-weak`)
+        document.querySelector(`#enemyImage`).classList.toggle(`apply-shake-weak`)
         }, 700);
     } else if (attacknum < 20){
         styleClass.play(midHit)
-        document.querySelector(`#container`).classList.toggle(`apply-shake-mid`)
+        document.querySelector(`#enemyImage`).classList.toggle(`apply-shake-mid`)
         setTimeout(() => {
-            document.querySelector(`#container`).classList.toggle(`apply-shake-mid`)
+            document.querySelector(`#enemyImage`).classList.toggle(`apply-shake-mid`)
         }, 900);
     } else{
         styleClass.play(critHit)
