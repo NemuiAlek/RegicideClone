@@ -115,14 +115,14 @@ class EnemyRules {
     document.querySelector(`#enemyStrength .statusNum`).innerHTML = this.currentEnemy.strength;
     document.querySelector(`.statNum`).innerHTML = 0; 
 
+    document.getElementById(`actionButton`).style.pointerEvents = 'none';
+    document.getElementById(`actionButton`).style.opacity = 0.5;
+
     if(this.currentEnemy.health > 0 && this.currentEnemy.strength !== 0){
         gameClass.CurrentTurn = `Enemy`
         this.enemyAttackValue = this.currentEnemy.strength
         document.querySelector(`.statNum`).innerHTML = `(${this.enemyAttackValue})` ;
-
         document.querySelector(`.action`).innerText = `RECIEVE DAMAGE!`
-        document.getElementById(`actionButton`).style.pointerEvents = 'none';
-        document.getElementById(`actionButton`).style.opacity = 0.5;
             document.getElementById("statActualBox").classList.toggle('enemy');
             document.getElementById("playArea").classList.toggle('enemy');
 

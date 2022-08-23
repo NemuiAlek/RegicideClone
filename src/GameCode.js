@@ -75,7 +75,7 @@ card.addEventListener(`click`, () =>{
     document.querySelectorAll(`.aCard.Area`).forEach((card) => {
     card.addEventListener(`click`, () =>{
         let index = parseInt(card.getAttribute(`id`).substring(5));
-        playerClass.removePlayArea(index, gameClass.CurrentTurn, enemyClass.enemyAttackValue)
+        playerClass.removePlayArea(index, gameClass.CurrentTurn, enemyClass.enemyAttackValue, enemyClass.currentEnemy.type)
     })
     })
 

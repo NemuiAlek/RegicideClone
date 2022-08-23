@@ -194,7 +194,7 @@ body {
     text-align: center;
     width:250px;
     height: 180px;
-    font-weight: 900;
+    /* font-weight: 900; */
     border-radius: 25px;
     padding: 0.5rem;
     background-color: rgba(144, 238, 144,.7);
@@ -265,7 +265,7 @@ body {
 }
 
 #modalLaunch{
-    display: none;
+    display: block;
 }
 
 #modalWin{
@@ -277,7 +277,7 @@ body {
 }
 
 #modalHelp{
-    display: block;
+    display: none;
 }
 
 h3{
@@ -291,7 +291,7 @@ h3{
   align-items: center;
   flex-flow: column;
   background-color: green;
-  margin: 20% auto; /* 15% from the top and centered */
+  margin: 15% auto; /* 15% from the top and centered */
   padding: 25px;
   border: 2px solid darkgreen;
   width: 20%; /* Could be more or less, depending on screen size */
@@ -303,6 +303,7 @@ h3{
 .modal-content.launchModel{
     background-color: rgb(128, 128, 128, .95);
     border: 2px solid black;
+    margin: 20% auto; /* 15% from the top and centered */
 }
 
 .modal-content.winModal{

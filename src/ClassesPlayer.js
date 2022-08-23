@@ -68,7 +68,7 @@ class PlayerRules{
         if(currentTurn===`Player`){
 
             let totalDmg = 0
-            let enemySuite = enemyClass.currentEnemy.type;
+            let enemySuit = enemyClass.currentEnemy.type;
             let suitesInPlay = [];
 
             for (let i = 0; i < 4; i++){
@@ -78,7 +78,7 @@ class PlayerRules{
                 }
             };
 
-            if (enemySuite !== 'Clubs' && suitesInPlay.includes(`Clubs`)){
+            if (enemySuit !== 'Clubs' && suitesInPlay.includes(`Clubs`)){
                 totalDmg = this.playValue * 2
             } else {
                 totalDmg = this.playValue
@@ -101,7 +101,7 @@ class PlayerRules{
         
     }
     
-    removePlayArea(index, currentTurn, enemyAttack){
+    removePlayArea(index, currentTurn, enemyAttack, enemySuit){
             let card = this.playArea[index]
             let handIndex = this.playerHand.findIndex (object => {
                 return object.blank === true;
@@ -124,9 +124,25 @@ class PlayerRules{
 
                 document.querySelector(`#pCard${index}`).removeChild(document.querySelector(`#pCard${index} img`))
 
+                let totalDmg = 0
+                let suitesInPlay = [];
+    
+                for (let i = 0; i < 4; i++){
+                    if(`blank` in this.playArea[i]){
+                    } else {
+                        suitesInPlay.push(this.playArea[i].type);
+                    }
+                };
+    
+                if (enemySuit !== 'Clubs' && suitesInPlay.includes(`Clubs`)){
+                    totalDmg = this.playValue * 2
+                } else {
+                    totalDmg = this.playValue
+                }
+
                 if(currentTurn===`Player`){
 
-                    document.querySelector(`.statNum`).innerHTML = this.playValue
+                    document.querySelector(`.statNum`).innerHTML = totalDmg
 
                     } else if (currentTurn===`Enemy`){
                         
