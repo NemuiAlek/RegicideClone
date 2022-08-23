@@ -62,28 +62,54 @@
     </div>
 
     <div id="modalHelp">
-        <div class="modal-content helpModal">
+        <div class="helpModal">
         <h2>Help Information;</h2>
         <ul>
             <li>To protect the kingdom from distruction, you must defeat 12 powerful monsters.</li>
             <li>Each turn has 4 steps:</li>
             <ol>
-                <li>Play a card</li>
-                <li>Activate the suit power</li>
-                <li>Deal damage to the enemy</li>
-                <li>Suffer damage from the enemy</li>
+                <li><h4>Play a card</h4></li>
+                <li><h4>Activate the suit power</h4></li>
+                <li><h4>Deal damage to the enemy</h4></li>
+                <li><h4>Suffer damage from the enemy</h4></li>
             </ol>
             <li><h4>Play a card</h4>
-                <p>explain differnt plays possible</p></li>
+                <p> Choose cards to deal damage and activate suits.
+                    Playing card works in the following order:
+                </p>
+                <ul>
+                    <li><h4>Single Card</h4>
+                        <p>You can always play a single card regardless of card value.</p>
+                    </li>
+                    <li><h4>Pets</h4>
+                        <p>You can always play a single card regardless of card value.</p>
+                    </li>
+                    <li><h4>Fast Play</h4>
+                        <p>You can always play a single card regardless of card value.</p>
+                    </li>
+                </ul>
+            </li>
 
             <li><h4>Activate the suit power</h4>
-                <p>Show Picture</p></li>
-
+                <div class="flexSuits">
+                    <p>Show Picture</p>
+                </div>
+                <p>Suits of the same kind as the current enemy do not take effect.</p>
+                <p>
+                    (If you are fighting the Jack of Diamonds and you play a diamond suit card,
+                   you will only deal damage, but wont draw cards.)
+                </p>
+                <p>If you play multiple suits (ace + other, or fast play multiple cards) then all
+                    suits will take affect.
+                </p>
+            </li>
             <li><h4>Deal damage to the enemy</h4>
                 <p>explain differnt plays possible</p></li>
                 
             <li><h4>suffer damage from enemy</h4>
-                <p>explain differnt plays possible</p></li>
+                <p>Discard cards equivalent or more than the strength value of the enemy.</p>
+                <p>If the enemy has a strength value of 0, then this step is skipped. </p>
+            </li>
         </ul>
         </div>
     </div>

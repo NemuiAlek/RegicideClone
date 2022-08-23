@@ -265,7 +265,7 @@ body {
 }
 
 #modalLaunch{
-    display: block;
+    display: none;
 }
 
 #modalWin{
@@ -323,30 +323,40 @@ h3{
 
 .helpModal p{
     margin-top: 1px;
+    font-size: 17px;
 }
 
 
 
 #modalHelp {
-    display: block;
-    position: fixed; /* Stay in place */
+    position: fixed; /*Stay in place */
     z-index: 1; /* Sit on top */
-    left: 70%;
+    left: 65%;
     top: 0;
-    width: auto; /* Full width */
+    width: 40vw; /* Full width */
     height: auto; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,.4); /* Black w/ opacity */
 }
 
-.modal-content.helpModal{
+.helpModal{
+    display: flex;
+    flex-direction: column;
     padding: 25px;
+    margin: 25px;
     background-color: white;
     border: 2px solid black;
     font-size: 20px;
     font-weight: bold;
     width: 75%; /* Could be more or less, depending on screen size */
+    border-radius: 25px;
 }
+
+.helpModal h2{
+    margin:0;
+    padding:5px;
+}
+
 
 /*-----------------------------------------------------------------------------*/
 /*-----------------------------ANIMATIONS--------------------------------------*/
