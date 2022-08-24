@@ -5,7 +5,7 @@ class Deck {
         this.enemyQueens = [];
         this.enemyKings = [];
         this.suites = ['Spades','Clubs','Hearts','Diamonds']
-        this.cardValues = [1]//,2,3,4,5,6,7,8,9,10]
+        this.cardValues = [1,2,3,4,5,6,7,8,9,10]
         this.enemyStats = {jack: {health:20,str:10}, queen: {health:30,str:15}, king: {health:40,str:20}}
     }
 
