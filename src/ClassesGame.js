@@ -78,7 +78,7 @@ class GameRules{
         this.drawCards(8,pHand)
         document.querySelector(`.deck`).innerHTML = this.gameDeck.length
         document.querySelector(`#joker${index}`).classList = `joker taken`
-        // console.log(this.jokerAvailable.length)
+        this.checkIfLost(pHand,styleClass)
     }
 
     checkIfLost(pHand,styleClass){

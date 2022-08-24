@@ -440,7 +440,7 @@ h3{
 
 #enemyImage.kingArrival{
     animation-name: opacityShowKings;
-    animation-duration: 8s;
+    animation-duration: 6.5s;
     animation-iteration-count: 1;
 }
 
@@ -596,6 +596,64 @@ h3{
 /*---------------------FOR DIFFERENT SCREEN SIZES------------------------------*/
 
 @media (max-width:2100px) {
+
+    #statActualBox{
+        width:200px;
+        height: 130px;
+        font-weight: 900;
+        border-radius: 25px;
+        padding: 0.5rem;
+    }
+    
+    .statDesc{
+        font-size: 20px;
+    }
+    
+    .statNum{
+        font-size: 75px;
+    }
+
+    #playArea{
+        margin-left: 22vw;
+        height:200px;
+        width: 600px;
+    }
+    .cardsInPlay{
+        width: 100px;
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    #playerHand{
+        margin: 1rem 5vw;
+        width: 750px
+    } 
+
+    .action {
+        padding: 1.5rem;
+        width: 200px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:1920px) {
+
+    #title img{
+        height: 400px;
+    }
+
+    #enemyImage img{
+        width: 250px;
+    }
+
+    #showHelpModal{
+        width: 4vw; /* Full width */
+    }
+    
+    .showHelp{
+     font-size: 40px;
+    }
 
     #statActualBox{
         width:200px;
