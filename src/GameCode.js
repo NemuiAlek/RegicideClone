@@ -118,6 +118,11 @@ card.addEventListener(`click`, () =>{
         })
 
     showHelpModal.addEventListener('mouseover',() => {
+        
+        if(helpModal.classList.contains(`holdHelp`)){
+            helpModal.classList.remove(`holdHelp`)
+        }
+
         helpModal.style.display=`block`
         helpModal.classList.toggle(`opacityShow`) //on
         
