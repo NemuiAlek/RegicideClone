@@ -6,7 +6,7 @@ class Deck {
         this.enemyKings = [];
         this.suites = ['Spades','Clubs','Hearts','Diamonds']
         this.cardValues = [1,2,3,4,5,6,7,8,9,10]
-        this.enemyStats = {jack: {health:20,str:10}, queen: {health:30,str:15}, king: {health:40,str:20}}
+        this.enemyStats = {jack: {health:2,str:10}, queen: {health:3,str:15}, king: {health:4,str:20}}
     }
 
     generateDecks() {
@@ -17,7 +17,7 @@ class Deck {
             })
         
             this.enemyJacks.push(new Enemy(suite, `./img/cards/${suite}/ready/J.png`,  this.enemyStats.jack.health,  this.enemyStats.jack.str, `Jack`))
-            this.enemyQueens.push(new Enemy(suite, `./img/cards/${suite}/ready/Q.png`, this.enemyStats.queen.health,  this.enemyStats.queen.str, `Queen`))
+            // this.enemyQueens.push(new Enemy(suite, `./img/cards/${suite}/ready/Q.png`, this.enemyStats.queen.health,  this.enemyStats.queen.str, `Queen`))
             this.enemyKings.push(new Enemy(suite, `./img/cards/${suite}/ready/K.png`, this.enemyStats.king.health,  this.enemyStats.king.str, `King`))
         
         });

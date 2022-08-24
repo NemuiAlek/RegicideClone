@@ -439,10 +439,16 @@ h3{
 }
 
 #enemyImage.kingArrival{
-    animation-name: opacityShow;
+    animation-name: opacityShowKings;
     animation-duration: 8s;
     animation-iteration-count: 1;
 }
+
+@keyframes opacityShowKings{
+        0% {opacity: 0; transform: scale(2,2)}
+        100% {opacity: 1; transform: scale(1,1)}
+      }
+
 
 @keyframes captured{
     0%  { transform: scale(1,1);}

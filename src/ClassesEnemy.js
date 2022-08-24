@@ -51,6 +51,7 @@ class EnemyRules {
                     styleClass.play(footStep2)
                 }, 2500);
 
+
                 setTimeout(() => {
                     styleClass.play(footStep3)
                 }, 4500);
