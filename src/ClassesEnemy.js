@@ -15,36 +15,69 @@ class EnemyRules {
             this.enemyJacks.splice(0,1);
             this.showEnemyinQueue(this.enemyJacks);
 
+            document.querySelector(`#enemyHealth .statusNum`).innerHTML = this.currentEnemy.health;
+            document.querySelector(`#enemyStrength .statusNum`).innerHTML = this.currentEnemy.strength;
+            document.querySelector(`#enemyImage img`).src = this.currentEnemy.src;
+
         } else if (this.enemyQueens.length !== 0){
             this.currentEnemy = this.enemyQueens[0];
             this.enemyQueens.splice(0,1);
             this.showEnemyinQueue(this.enemyQueens);
 
+            document.querySelector(`#enemyHealth .statusNum`).innerHTML = this.currentEnemy.health;
+            document.querySelector(`#enemyStrength .statusNum`).innerHTML = this.currentEnemy.strength;
+            document.querySelector(`#enemyImage img`).src = this.currentEnemy.src;
+
         } else if (this.enemyKings.length !== 0){
 
-            if(this.kingsMusicPlaying === false){
-                styleClass.pause(jacksQueensMusic);
-                styleClass.play(kingsMusic);
-                this.kingsMusicPlaying = true;
-            }
-            
             this.currentEnemy = this.enemyKings[0];
             this.enemyKings.splice(0,1);
-            this.showEnemyinQueue(this.enemyKings);
+            this.showEnemyinQueue(this.enemyKings);            
 
+            document.querySelector(`#enemyHealth .statusNum`).innerHTML = this.currentEnemy.health;
+            document.querySelector(`#enemyStrength .statusNum`).innerHTML = this.currentEnemy.strength;
+            document.querySelector(`#enemyImage img`).src = this.currentEnemy.src;
+
+
+            if(this.kingsMusicPlaying === false){
+                document.querySelector(`#enemyImage`).classList.toggle(`kingArrival`)
+                styleClass.pause(jacksQueensMusic);                
+
+                setTimeout(() => {
+                    styleClass.play(footStep1)
+                }, 500);
+
+                setTimeout(() => {
+                    styleClass.play(footStep2)
+                }, 2500);
+
+                setTimeout(() => {
+                    styleClass.play(footStep3)
+                }, 4500);
+
+                setTimeout(() => {
+                    styleClass.play(kingsMusic);
+                    this.kingsMusicPlaying = true;
+                    document.querySelector(`#enemyImage`).classList.toggle(`kingArrival`)
+                }, 6500);
+
+            }
+            
         } else if (this.enemyKings.length === 0){
             document.getElementById(`modalWin`).style.display = `block`;
             setTimeout(() => {
                 document.getElementById("modalWin").classList.toggle('holdWin');
             }, 1499);
             styleClass.pause(kingsMusic);
-            styleClass.play(winMusic);      
+            styleClass.play(winMusic); 
+            
+            document.querySelector(`#enemyHealth .statusNum`).innerHTML = `!!`
+            document.querySelector(`#enemyStrength .statusNum`).innerHTML = `!!`
+            document.querySelector(`#enemyImage img`).src = `./img/gameTitle3.png`
         }
-        // console.log(array[0].health);
-        document.querySelector(`#enemyHealth .statusNum`).innerHTML = this.currentEnemy.health;
-        document.querySelector(`#enemyStrength .statusNum`).innerHTML = this.currentEnemy.strength;
-        document.querySelector(`#enemyImage img`).src = this.currentEnemy.src;
+        
     };
+
 
     showEnemyinQueue(array){
         let html = ''
@@ -174,11 +207,30 @@ class EnemyRules {
             if(enemyLabel === `Jack`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, 10))}
             else if (enemyLabel === `Queen`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, 15))}
             else if (enemyLabel === `King`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, 20))}
-            this.drawEnemy(styleClass)
-            document.querySelector(`.deck`).innerHTML = gameClass.gameDeck.length
-            console.log(gameClass.gameDeck)
+            
+            document.querySelector(`#enemyImage`).classList.toggle(`captured`)
+
+            setTimeout(() => {
+                document.querySelector(`#enemyHealth .statusNum`).innerHTML = 0
+                document.querySelector(`#enemyStrength .statusNum`).innerHTML = 0
+                document.querySelector(`#enemyImage`).classList.toggle(`captured`)
+                this.drawEnemy(styleClass)
+                document.querySelector(`.deck`).innerHTML = gameClass.gameDeck.length
+                console.log(gameClass.gameDeck)   
+            }, 1000);
+
         } else if (this.currentEnemy.health < 0) {
-            this.drawEnemy(styleClass)
+
+            document.querySelector(`#enemyHealth .statusNum`).innerHTML = 0
+            document.querySelector(`#enemyStrength .statusNum`).innerHTML = 0
+
+            document.querySelector(`#enemyImage`).classList.toggle(`destroyed`)
+
+            setTimeout(() => {
+                document.querySelector(`#enemyImage`).classList.toggle(`destroyed`)
+                this.drawEnemy(styleClass)
+            }, 1000);
+
         }
     }
 

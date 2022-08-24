@@ -59,7 +59,7 @@ class GameRules{
         this.shuffleCards(this.discardDeck);
         for (let i=0;i<num; i++){
             if (this.discardDeck.length !== 0){
-            this.gameDeck.push(this.discardDeck[0]);
+            this.gameDeck.push(this.discardDeck[0])
             this.discardDeck.splice(0,1);
             document.querySelector(`.deck`).innerHTML = this.gameDeck.length
             document.querySelector(`.discard-pile`).innerHTML = this.discardDeck.length

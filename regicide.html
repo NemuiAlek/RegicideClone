@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div id="muisc">
+    <div id="music">
         <audio loop id="titleMusic" src="./audio/Music/Title.wav"></audio>
         <audio loop id="mainMusic" src="./audio/Music/Jacks-Queens.wav"></audio>
         <audio loop id="bossMusic" src="./audio/Music/Kings.wav"></audio>
@@ -36,7 +36,9 @@
             <audio id="kingDeath" src="./audio/SoundEffects/Death/KingDeath.wav"></audio>
             <audio id="easterEgg1" src="./audio/SoundEffects/Death/DeathNoiceEaster.wav"></audio>
         </div>
-
+        <audio id="footStep1" src="./audio/SoundEffects/footSteps.wav"></audio>
+        <audio id="footStep2" src="./audio/SoundEffects/footSteps.wav"></audio>
+        <audio id="footStep3" src="./audio/SoundEffects/footSteps.wav"></audio>
     </div>
 </head>
 <body>
@@ -61,54 +63,88 @@
         </div>
     </div>
 
+    <div id="showHelpModal">
+        <div class="showHelp">
+            Show Help!
+        </div>
+    </div>
+
     <div id="modalHelp">
         <div class="helpModal">
         <h2>Help Information;</h2>
         <ul>
-            <li>To protect the kingdom from distruction, you must defeat 12 powerful monsters.</li>
-            <li>Each turn has 4 steps:</li>
-            <ol>
-                <li><h4>Play a card</h4></li>
-                <li><h4>Activate the suit power</h4></li>
-                <li><h4>Deal damage to the enemy</h4></li>
-                <li><h4>Suffer damage from the enemy</h4></li>
-            </ol>
-            <li><h4>Play a card</h4>
-                <p> Choose cards to deal damage and activate suits.
-                    Playing card works in the following order:
-                </p>
+            <li>Defeat 12 powerful monsters to claim victory!</li>
+            <li>If you run out of cards to play and have no Jokers left then you have been defeated...</li>
+            <h2></h2>
+            <li>General
+            <ul>
+                <li>
+                    <div class="flexJokers">
+                        <span>You have two jokers:</span>
+                        <img class="helpJoker" src="./img/joker.jpg" alt="">
+                        <span><p>Clicking on a joker will discard all current cards in
+                                your hand and draw 7 cards. You can also click on a joker
+                                once you have run out of cards to avoid defeat.
+                        </p></span>
+                    </div>
+                </li>
+            </ul>
+            </li>
+            <li>Each turn has 4 steps:
+                <ol>
+                    <li><h4>Play a card</h4></li>
+                    <li><h4>Activate the suit power</h4></li>
+                    <li><h4>Deal damage to the enemy</h4></li>
+                    <li><h4>Suffer damage from the enemy</h4></li>
+                </ol>
                 <ul>
-                    <li><h4>Single Card</h4>
-                        <p>You can always play a single card regardless of card value.</p>
+                    <li><h4>Play a card</h4>
+                        <p> Choose cards to deal damage and activate suits.
+                            Playing card works in the following order:
+                        </p>
+                        <ul>
+                            <li><h4>Single Card</h4>
+                                <p>You can always play a single card regardless of card value.</p>
+                            </li>
+                            <li><h4>Pets</h4>
+                                <p> Pets can be played along side any other card <em>other than pets</em>.
+                                    Pets cannot be played if you are uisng <em>Fast Play</em>.</p>
+                            </li>
+                            <li><h4>Fast Play</h4>
+                                <p>This allows you to play multiple cards together if:</p>
+                                <ul>
+                                    <li class="lessMargin"><p>All cards of the same value.</p></li>
+                                    <li class="lessMargin"><p>The total sum is less than or equal to 10</p></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
-                    <li><h4>Pets</h4>
-                        <p>You can always play a single card regardless of card value.</p>
+
+                    <li><h4>Activate the suit power</h4>
+                        <div class="flexSuits">
+                            <img src="./img/helpMenu/clubs.png" alt="">
+                            <img src="./img/helpMenu/spades.png" alt="">
+                            <img src="./img/helpMenu/diamonds.png" alt="">
+                            <img src="./img/helpMenu/hearts.png" alt="">
+                        </div>
+                        <ul>
+                            <li><p>Suits of the same kind as the current enemy do not take effect.</p></li>
+                            <li><p>If you play multiple suits (ace + other, or fast play multiple cards) then all
+                                suits will take affect.</p></li>
+                        </ul>
                     </li>
-                    <li><h4>Fast Play</h4>
-                        <p>You can always play a single card regardless of card value.</p>
+                    <li><h4>Deal damage to the enemy</h4>
+                        <p>To defeat an enemy you must reduce their health below 0</p>
+                        <p>If you defeat an enemy with exact damage (bringing their health eactly to 0)
+                            then you have captured the enemy and will be placed at the top of the draw pile.
+                        </p>
+                    </li>
+                        
+                    <li><h4>suffer damage from enemy</h4>
+                        <p>Discard cards equivalent or more than the strength value of the enemy.</p>
+                        <p>If the enemy has a strength value of 0, then this step is skipped. </p>
                     </li>
                 </ul>
-            </li>
-
-            <li><h4>Activate the suit power</h4>
-                <div class="flexSuits">
-                    <p>Show Picture</p>
-                </div>
-                <p>Suits of the same kind as the current enemy do not take effect.</p>
-                <p>
-                    (If you are fighting the Jack of Diamonds and you play a diamond suit card,
-                   you will only deal damage, but wont draw cards.)
-                </p>
-                <p>If you play multiple suits (ace + other, or fast play multiple cards) then all
-                    suits will take affect.
-                </p>
-            </li>
-            <li><h4>Deal damage to the enemy</h4>
-                <p>explain differnt plays possible</p></li>
-                
-            <li><h4>suffer damage from enemy</h4>
-                <p>Discard cards equivalent or more than the strength value of the enemy.</p>
-                <p>If the enemy has a strength value of 0, then this step is skipped. </p>
             </li>
         </ul>
         </div>
@@ -125,7 +161,7 @@
             </div>
             <div id="turtle">
                 <a href="https://www.youtube.com/watch?v=7XoRlKzLobk" target="_blank">
-                    <button class = menuButton>Turtle</button>
+                    <button class = menuButton>Tutorial</button>
                 </a>
             </div>
         </div>
