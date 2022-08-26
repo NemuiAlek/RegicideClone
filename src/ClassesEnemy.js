@@ -76,6 +76,14 @@ class EnemyRules {
             document.querySelector(`#enemyStrength .statusNum`).innerHTML = `!!`
             document.querySelector(`#enemyImage img`).classList.toggle(`victoryImg`)
             document.querySelector(`#enemyImage img`).src = `./img/gameTitle3.png`
+            
+            let x = Math.floor(Math.random() * 2)
+
+            if(x===0){unlockedCheatCode = 'lowrank'}
+            else if (x===1){unlockedCheatCode = 'iamgod'}
+            else if (x===2){unlockedCheatCode = 'masterrank'}
+
+            document.querySelector(`#cheatCodeUnlocked`).innerHTML = unlockedCheatCode
         }
         
     };

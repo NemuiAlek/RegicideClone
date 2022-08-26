@@ -1,9 +1,8 @@
-//Shuffle the deck
-
+let styleClass = new Style()
+let cardAsset = new Deck();
 let gameClass =  new GameRules (cardAsset.gameCards)
 let enemyClass =  new  EnemyRules(cardAsset.enemyJacks,cardAsset.enemyQueens,cardAsset.enemyKings)
 let playerClass =  new PlayerRules ()
-let styleClass = new Style()
 
 let allowCheats = true;
 let iamGod = false;
@@ -21,6 +20,9 @@ let footer = document.getElementById(`footer`);
 let launchModel = document.getElementById(`modalLaunch`);
 let showHelpModal = document.getElementById(`showHelpModal`)
 let helpModal = document.getElementById(`modalHelp`)
+let cheatModal = document.getElementById(`modalCheat`)
+
+let cheatCode = document.getElementById(`cheatCode`)
 
 let titleMusic = document.getElementById(`titleMusic`);
 let jacksQueensMusic = document.getElementById(`mainMusic`);
@@ -47,18 +49,22 @@ let footStep2 = document.getElementById(`footStep2`)
 let footStep3 = document.getElementById(`footStep3`)
 
 
+launchModel.addEventListener(`click`, () =>{
+    styleClass.hideModal(launchModel);
+    styleClass.play(titleMusic);
+});
+
+actionButton.style.display = 'none'
+soloButton.addEventListener('click', () => {
+
+cardAsset.generateDecks();
+
 gameClass.shuffleCards(enemyClass.enemyJacks)
 gameClass.shuffleCards(enemyClass.enemyQueens)
 gameClass.shuffleCards(enemyClass.enemyKings)
 gameClass.shuffleCards(gameClass.gameDeck)
 
-launchModel.addEventListener(`click`, () =>{
-    styleClass.hideModal(launchModel)
-    styleClass.play(titleMusic)
-});
 
-actionButton.style.display = 'none'
-soloButton.addEventListener('click', () => {
     menu.style.display = 'none'
     container.style.display = 'block'
     middle.style.display = 'flex'
@@ -66,6 +72,7 @@ soloButton.addEventListener('click', () => {
     showHelpModal.style.display = `block`
     actionButton.style.display = 'flex'
     actionButton.disabled = true;
+    allowCheats = false;
 
     enemyClass.drawEnemy();
     gameClass.drawCards(12,playerClass.playerHand)
@@ -170,7 +177,25 @@ card.addEventListener(`click`, () =>{
             konamiArray[8] === `KeyB` &&
             konamiArray[9] === `KeyA`
             ){
-         console.log(`success!!`);
+                if(allowCheats === true){
+                    cheatModal.style.display = 'block';
+                }
 
           }
+        })
+
+        cheatModal.addEventListener('keypress', (event) => {
+            if(event.code === 'Enter'){
+                if( cheatCode.value === 'iamgod' ||
+                    cheatCode.value === 'lowrank' ||
+                    cheatCode.value === 'masterrank'){
+                    cardAsset.cheatCodes(cheatCode.value);
+                    document.getElementById(`cheats`).style.display = 'block';
+                    cheatModal.style.display = 'none';
+                    allowCheats = false;
+                } else {
+                    alert('INVALID CHEAT CODE');
+                    cheatModal.style.display = 'none';
+                }
+            }
         })

@@ -23,25 +23,28 @@ class Deck {
         });
     }
 
-    cheatCodes(){
+    cheatCodes(cheats){
         //iamGod
-        if(iamGod === true){
+        if(cheats === 'iamgod'){
             this.enemyStats = {jack: {health:2,str:10}, queen: {health:3,str:15}, king: {health:4,str:20}}
         }
         //lowRank
-        else if (lowRank === true) {
+        else if (cheats === 'lowrank') {
             this.enemyStats = {jack: {health:20,str:5}, queen: {health:25,str:10}, king: {health:30,str:15}}
         }
         //masterRank
-        else if (masterRank === true){
+        else if (cheats === 'masterrank'){
             this.enemyStats = {jack: {health:30,str:15}, queen: {health:40,str:20}, king: {health:50,str:25}}
         }
+
+
+
     }
 };
 
-let cardAsset = new Deck
+// let cardAsset = new Deck
 
-cardAsset.generateDecks();
+// cardAsset.generateDecks();
 
 // console.log(cardAsset.gameCards)
 // console.log(cardAsset.enemyJacks)
