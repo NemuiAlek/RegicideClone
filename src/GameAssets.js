@@ -25,15 +25,15 @@ class Deck {
 
     cheatCodes(cheats){
         //iamGod
-        if(cheats === 'iamgod'){
+        if(cheats.toLowerCase() === 'iamgod'){
             this.enemyStats = {jack: {health:2,str:10}, queen: {health:3,str:15}, king: {health:4,str:20}}
         }
         //lowRank
-        else if (cheats === 'lowrank') {
+        else if (cheats.toLowerCase() === 'lowrank') {
             this.enemyStats = {jack: {health:20,str:5}, queen: {health:25,str:10}, king: {health:30,str:15}}
         }
         //masterRank
-        else if (cheats === 'masterrank'){
+        else if (cheats.toLowerCase() === 'masterrank'){
             this.enemyStats = {jack: {health:30,str:15}, queen: {health:40,str:20}, king: {health:50,str:25}}
         }
 

@@ -186,9 +186,9 @@ card.addEventListener(`click`, () =>{
 
         cheatModal.addEventListener('keypress', (event) => {
             if(event.code === 'Enter'){
-                if( cheatCode.value === 'iamgod' ||
-                    cheatCode.value === 'lowrank' ||
-                    cheatCode.value === 'masterrank'){
+                if( cheatCode.value.toLowerCase() === 'iamgod' ||
+                    cheatCode.value.toLowerCase() === 'lowrank' ||
+                    cheatCode.value.toLowerCase() === 'masterrank'){
                     cardAsset.cheatCodes(cheatCode.value);
                     document.getElementById(`cheats`).style.display = 'block';
                     cheatModal.style.display = 'none';

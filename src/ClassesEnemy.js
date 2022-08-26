@@ -78,12 +78,18 @@ class EnemyRules {
             document.querySelector(`#enemyImage img`).src = `./img/gameTitle3.png`
             
             let x = Math.floor(Math.random() * 2)
+            let unlockedCheatCode = ''
 
             if(x===0){unlockedCheatCode = 'lowrank'}
             else if (x===1){unlockedCheatCode = 'iamgod'}
             else if (x===2){unlockedCheatCode = 'masterrank'}
 
+            if(cheatCode.value !== ''){
+            document.querySelector(`#cheatCodeUnlocked`).innerHTML = `Cheaters never win!`  
+            } else {
             document.querySelector(`#cheatCodeUnlocked`).innerHTML = unlockedCheatCode
+            }
+
         }
         
     };
