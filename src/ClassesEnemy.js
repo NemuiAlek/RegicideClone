@@ -218,7 +218,7 @@ class EnemyRules {
             let queenStr = 15;
             let kingStr = 20;
 
-            if(masterRank === true){
+            if(cheatCode.value === `masterrank`){
                 jackStr = 15;
                 queenStr = 20;
                 kingStr = 25;
