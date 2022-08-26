@@ -74,6 +74,7 @@ class EnemyRules {
             
             document.querySelector(`#enemyHealth .statusNum`).innerHTML = `!!`
             document.querySelector(`#enemyStrength .statusNum`).innerHTML = `!!`
+            document.querySelector(`#enemyImage img`).classList.toggle(`victoryImg`)
             document.querySelector(`#enemyImage img`).src = `./img/gameTitle3.png`
         }
         
@@ -205,9 +206,19 @@ class EnemyRules {
         if(this.currentEnemy.health > 0){
             return
         } else if (this.currentEnemy.health === 0){
-            if(enemyLabel === `Jack`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, 10))}
-            else if (enemyLabel === `Queen`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, 15))}
-            else if (enemyLabel === `King`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, 20))}
+            let jackStr = 10;
+            let queenStr = 15;
+            let kingStr = 20;
+
+            if(masterRank === true){
+                jackStr = 15;
+                queenStr = 20;
+                kingStr = 25;
+            }
+
+            if(enemyLabel === `Jack`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, jackStr))}
+            else if (enemyLabel === `Queen`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, queenStr))}
+            else if (enemyLabel === `King`){gameClass.gameDeck.unshift(new Card(enemySuite, enemyImage, kingStr))}
             
             document.querySelector(`#enemyImage`).classList.toggle(`captured`)
 

@@ -284,6 +284,11 @@ body {
     display: none;
 }
 
+#modalCheat{
+    display: none;
+}
+
+
 h3{
     color: white;
     font-size: 50px;
@@ -306,6 +311,7 @@ h3{
     background-color: rgb(128, 128, 128, .95);
     border: 2px solid black;
     margin: 20% auto; /* 15% from the top and centered */
+    animation: none;
 }
 
 .modal-content.winModal{
@@ -354,13 +360,13 @@ h3{
     flex-direction: column;
     padding: 25px;
     margin: 25px;
-    margin-left: 100px;
+    margin-left: 80px;
     background-color: white;
     border: 2px solid black;
     font-size: 20px;
     font-weight: bold;
-    width: 75%; /* Could be more or less, depending on screen size */
-    border-radius: 25px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 25px 0 0 25px;
 }
 
 .helpModal h2{
@@ -403,24 +409,38 @@ h3{
     height: auto; /* Full height */
     overflow: none; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0); /* Black w/ opacity */
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
     opacity: .7;
 }
 
 .showHelp{
     display: flex;
     flex-direction: column;
+    justify-content: left;
     margin: 25px;
     margin-top: 10vw;
     background-color: lightgreen;
     border: 2px solid black;
     font-size: 50px;
     font-weight: bold;
-    width: 2.7vw; /* Could be more or less, depending on screen size */
-    border-radius: 25px;
+    width: 10vw; /* Could be more or less, depending on screen size */
+    border-radius: 25px 0 0 25px;
     writing-mode: vertical-rl;
     text-orientation: upright;
+}
+
+#enemyImage .victoryImg{
+    height:200px;
+    width: auto;
+    animation-name:opacityShow;
+    animation-duration: 8s;
+    animation-iteration-count: 1;
+}
+
+#cheats{
+    display: none;
+    background-color: white;
+    padding: 5px;
+    border-radius: 25px;
 }
 
 /*-----------------------------------------------------------------------------*/
@@ -461,10 +481,6 @@ h3{
     0%{background-position: 0 0;}
     100%{background-position: -2122px 0;}
 }
-
-#modalLaunch .modal-content{
-    animation-name: none;
-  }
 
   #modalHelp .modal-content{
     animation-name: none;
@@ -695,9 +711,74 @@ h3{
     }
 }
 
-@media (max-width:1300px) {
+@media (max-width:1550px) {
+
+    .modal-content img{
+        width:20vw;
+        height:auto;
+    }
+
+    h3{
+        color: white;
+        font-size: 40px;
+      }
+
+      .showHelp{
+        margin: 25px;
+        margin-top: 10vw;
+        background-color: lightgreen;
+        border: 2px solid black;
+        font-size: 35px;
+        font-weight: bold;
+        width: 6vw; /* Could be more or less, depending on screen size */
+    }
+
+    .topDeck {
+        background-color: rgba(255,255,255,.7);
+        font-weight: 900;
+        border-radius: 25px;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 13px;
+    }    
+
+    #enemiesInQueue img{
+        height: 75px;
+        width: auto;
+        margin: 0 2px 0 2px;
+        opacity: 0.7;
+    }
+
+    #enemyImage img{
+        width: 170px;
+    }
 
     
+    .statusTitle {
+        font-size: 30px;
+    }
+
+    .statusNum{
+        font-size: 65px;
+    }
+
+    .boxForStat{
+        border-radius: 25px;
+        width: 200px;
+        padding: 8px;
+    }   
+
+    #title img{
+        height: 300px;
+    }
+
+    .menuButton {
+        width: 175px;
+        height: auto;
+        font-size: 15px;
+        padding: 1.0rem;
+    }
+
     #statActualBox{
         width:175px;
         height: 105px;

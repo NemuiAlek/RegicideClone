@@ -5,6 +5,11 @@ let enemyClass =  new  EnemyRules(cardAsset.enemyJacks,cardAsset.enemyQueens,car
 let playerClass =  new PlayerRules ()
 let styleClass = new Style()
 
+let allowCheats = true;
+let iamGod = false;
+let lowRank = false;
+let masterRank = false;
+
 let soloButton = document.getElementById(`soloButton`);
 let multiButton = document.getElementById(`multiButton`);
 let tutorialButton = document.getElementById(`turtle`);
@@ -144,6 +149,28 @@ card.addEventListener(`click`, () =>{
 
         })    
 
+        let konamiArray = []
+        window.addEventListener(`keydown`,(event) => {
+          if(event.code === `ArrowUp` || event.code === `ArrowDown` || event.code === `ArrowLeft`
+            || event.code === `ArrowRight` || event.code === `KeyA` || event.code === `KeyB`){
+            konamiArray.push(event.code);
+          } else {
+            konamiArray = [];
+          }
+        
+          if(
+            konamiArray[0] === `ArrowUp` &&
+            konamiArray[1] === `ArrowUp` &&
+            konamiArray[2] === `ArrowDown` &&
+            konamiArray[3] === `ArrowDown` &&
+            konamiArray[4] === `ArrowLeft` &&
+            konamiArray[5] === `ArrowRight` &&
+            konamiArray[6] === `ArrowLeft` &&
+            konamiArray[7] === `ArrowRight` &&
+            konamiArray[8] === `KeyB` &&
+            konamiArray[9] === `KeyA`
+            ){
+         console.log(`success!!`);
 
-
-
+          }
+        })
