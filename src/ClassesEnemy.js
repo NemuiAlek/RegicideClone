@@ -84,10 +84,17 @@ class EnemyRules {
             else if (x===1){unlockedCheatCode = 'iamgod'}
             else if (x===2){unlockedCheatCode = 'masterrank'}
 
+            let html = `<h3>YOU WON!!!</h3>
+            <h4>Cheat Code Unlocked</h4>
+            <h4>Konami Code + </h4>
+            <h4>${unlockedCheatCode}</h4>
+            <span><img src="./img/victory.gif"></span>`
+
             if(cheatCode.value !== ''){
-            document.querySelector(`#cheatCodeUnlocked`).innerHTML = `Cheaters never win!`  
+            document.querySelector(`.winModal`).innerHTML = `Cheaters never win!`
+            document.querySelector(`.winModal`).style = `background-color:Red;`
             } else {
-            document.querySelector(`#cheatCodeUnlocked`).innerHTML = unlockedCheatCode
+            document.querySelector(`.winModal`).innerHTML = html
             }
 
         }
