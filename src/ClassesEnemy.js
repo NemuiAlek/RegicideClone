@@ -77,12 +77,12 @@ class EnemyRules {
             document.querySelector(`#enemyImage img`).classList.toggle(`victoryImg`)
             document.querySelector(`#enemyImage img`).src = `./img/gameTitle3.png`
             
-            let x = Math.floor(Math.random() * 2)
+            let x = Math.floor(Math.random() * 10)
             let unlockedCheatCode = ''
 
-            if(x===0){unlockedCheatCode = 'lowrank'}
-            else if (x===1){unlockedCheatCode = 'iamgod'}
-            else if (x===2){unlockedCheatCode = 'masterrank'}
+            if(x<4){unlockedCheatCode = 'lowrank'}
+            else if (x<=8){unlockedCheatCode = 'masterrank'}
+            else if (x<=10){unlockedCheatCode = 'iamgod'}
 
             let html = `<h3>YOU WON!!!</h3>
             <h4>Cheat Code Unlocked</h4>
