@@ -13,6 +13,7 @@ let soloButton = document.getElementById(`soloButton`);
 let multiButton = document.getElementById(`multiButton`);
 let tutorialButton = document.getElementById(`turtle`);
 let actionButton = document.getElementById(`actionButton`);
+let creditButton = document.getElementById(`Credits`)
 let menu = document.getElementById(`menu`);
 let container = document.getElementById(`container`);
 let middle = document.getElementById(`middle`);
@@ -21,6 +22,7 @@ let launchModel = document.getElementById(`modalLaunch`);
 let showHelpModal = document.getElementById(`showHelpModal`)
 let helpModal = document.getElementById(`modalHelp`)
 let cheatModal = document.getElementById(`modalCheat`)
+let creditModal = document.getElementById(`modalCredit`)
 
 let cheatCode = document.getElementById(`cheatCode`)
 
@@ -199,3 +201,12 @@ card.addEventListener(`click`, () =>{
                 }
             }
         })
+
+        creditButton.addEventListener(`click`, () =>{
+            creditModal.style.display = `block`;
+        })
+
+        creditModal.addEventListener(`click`, () =>{
+            styleClass.hideModal(creditModal);
+        });
+

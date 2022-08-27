@@ -259,7 +259,7 @@ body {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: none; /* Enable scroll if needed */
+    overflow: none;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -288,6 +288,9 @@ body {
     display: none;
 }
 
+#modalCredit{
+    display: none;
+}
 
 h3{
     color: white;
@@ -338,6 +341,13 @@ h3{
     animation: none;
 }
 
+.creditModal{
+    background-color: rgb(144, 238, 144, 0.95);
+    border: 2px solid gray;
+    margin: 20% auto; /* 15% from the top and centered */
+    animation-iteration-count: 1;
+}
+
 .cheatModal h4{
     margin: 10px;
     font-style: italic;
@@ -357,6 +367,53 @@ h3{
     font-size: 17px;
 }
 
+#modalCredit {
+    position: fixed; /*Stay in place */
+    z-index: 1; /* Sit on top */
+    top: 5px;
+    bottom: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,.75); /* Black w/ opacity */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    opacity: 0.95;
+}
+
+.creditModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin: 5% auto; /* 15% from the top and centered */
+    font-size: 20px;
+    font-weight: bold;
+    width: 35%; /* Could be more or less, depending on screen size */
+    border-radius: 25px;
+    margin-top: 5px;
+    animation-name: appear;
+    animation-iteration-count: 1;
+}
+
+.creditModal .creditTitle{
+    width: 400px;    
+    height: auto;
+}
+
+.creditModal h2{
+    margin: 10px;
+}
+
+.creditModal h4{
+    margin: 5px;
+}
+
+.creditModal h5{
+    font-size: 20px;
+    margin: 5px;
+}
 
 #modalHelp {
     position: fixed; /*Stay in place */
@@ -733,6 +790,10 @@ h3{
 
 @media (max-width:1550px) {
 
+    #title img{
+        height: 300px;
+    }
+
     .modal-content img{
         width:20vw;
         height:auto;
@@ -787,10 +848,6 @@ h3{
         width: 200px;
         padding: 8px;
     }   
-
-    #title img{
-        height: 300px;
-    }
 
     .menuButton {
         width: 175px;
@@ -850,7 +907,6 @@ h3{
 }
 
 @media (max-width:720px), (max-height:512px) {
-
 
     .topDeck {
         font-size: 12px;
