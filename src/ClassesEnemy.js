@@ -90,7 +90,14 @@ class EnemyRules {
             <h4>${unlockedCheatCode}</h4>
             <span><img src="./img/victory.gif"></span>`
 
-            if(cheatCode.value !== ''){
+            if (cheatCode.value.toLowerCase() === 'masterrank'){
+                html = `<h3>YOU HAVE DEFEATED MASTER RANK!!!!</h3>
+                <h4>Please go to the Credits and Buy Regicide!</h4>
+                <h4>Holy shit!!</h4>
+                <h4>You're the best!!</h4>
+                <span><img src="./img/masterrankwin.webp"></span>`
+            }
+            else if(cheatCode.value !== ''){
             document.querySelector(`.winModal`).innerHTML = `Cheaters never win!`
             document.querySelector(`.winModal`).style = `background-color:Red;`
             } else {
