@@ -5,7 +5,9 @@ html {
 body {
     background: url(../img/regicide-bannerimg.png) repeat;
     background-size: cover;
-    animation: slide 30s linear infinite
+    animation: slide 30s linear infinite;
+    background-blend-mode: multiply;
+    
 }
 
 
@@ -320,10 +322,12 @@ h3{
 .modal-content.winModal{
     background-color: rgb(119, 174, 119, .9);
     border: 2px solid black;
+    text-align: center;
 }
 
 .modal-content.winModal h3{
     margin-bottom: 5px;
+    font-size: 40px;
 }
 
 .modal-content.winModal h4{

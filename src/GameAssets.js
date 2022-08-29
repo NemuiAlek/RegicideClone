@@ -27,14 +27,17 @@ class Deck {
         //iamGod
         if(cheats.toLowerCase() === 'iamgod'){
             this.enemyStats = {jack: {health:2,str:10}, queen: {health:3,str:15}, king: {health:4,str:20}}
+            document.querySelector(`body`).style.backgroundColor = `gray`
         }
         //lowRank
         else if (cheats.toLowerCase() === 'lowrank') {
             this.enemyStats = {jack: {health:20,str:5}, queen: {health:25,str:10}, king: {health:30,str:15}}
+            document.querySelector(`body`).style.backgroundColor = `rgb(0, 128, 0,.3)`
         }
         //masterRank
         else if (cheats.toLowerCase() === 'masterrank'){
             this.enemyStats = {jack: {health:30,str:15}, queen: {health:40,str:20}, king: {health:50,str:25}}
+            document.querySelector(`body`).style.backgroundColor = `rgb(255, 0, 0,.5)`
         }
 
 
